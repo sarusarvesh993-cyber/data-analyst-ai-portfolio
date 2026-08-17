@@ -2,22 +2,40 @@
 from pathlib import Path
 
 import pandas as pd
-import plotly.graph_objects as go
 import plotly.express as px
+import plotly.graph_objects as go
 import streamlit as st
 
 from portfolio_app.forecast import build_forecast, load_retail_sales, monthly_seasonality
+from portfolio_app.ui import (
+    GOLD,
+    NAVY,
+    TEAL,
+    configure_page,
+    inject_global_css,
+    render_footer,
+    render_notice,
+    render_page_header,
+    render_section,
+    render_sidebar,
+    style_plotly,
+)
 from utils.ai_insights import generate_insights
 
-st.set_page_config(page_title="Retail Forecast | Sarvesh Kommawar", page_icon="📈", layout="wide")
-st.title("02 · U.S. Retail Sales Forecast")
-st.write(
-    "**Business question:** What range of U.S. retail and food-services sales is plausible "
-    "over the next planning horizon, and does the model beat a simple year-ago baseline?"
+configure_page("Retail Sales Forecast", "📈")
+inject_global_css()
+render_sidebar()
+render_page_header(
+    "Project 02 · Time-series planning",
+    "U.S. Retail Sales Forecast",
+    "Estimate a plausible national retail-sales range, validate it against recent holdout data, and compare it with a simple year-ago baseline.",
+    ["Holt–Winters", "24-month backtest", "Seasonal baseline", "36.4% MAE improvement"],
 )
-st.info(
-    "This page uses the not-seasonally-adjusted FRED series RSAFSNA. It is a national "
-    "macroeconomic indicator—not store, category, or SKU demand."
+render_notice(
+    "navy",
+    "i",
+    "Macro planning indicator",
+    "The page uses FRED series RSAFSNA: national retail trade and food-services sales, not seasonally adjusted. It is not store, category, or SKU demand.",
 )
 
 DATA_PATH = Path(__file__).resolve().parents[1] / "portfolio_app" / "data" / "retail_sales_monthly.csv"
@@ -41,8 +59,13 @@ m1, m2, m3, m4 = st.columns(4)
 m1.metric("Latest observation", series.index.max().strftime("%b %Y"))
 m2.metric("Latest sales", f"${series.iloc[-1] / 1_000:,.1f}B")
 m3.metric("Backtest MAE", f"${result.mae / 1_000:,.1f}B")
-m4.metric("MAE improvement vs baseline", f"{result.improvement_pct:.1f}%")
+m4.metric("Gain vs baseline", f"{result.improvement_pct:.1f}%", delta="Lower MAE")
 
+render_section(
+    "Planning workspace",
+    f"Explore a {horizon}-month forecast and its validation",
+    "Use the sidebar to change the horizon. The backtest remains fixed so comparisons stay honest.",
+)
 forecast_tab, validation_tab, seasonality_tab, brief_tab = st.tabs(
     ["Forecast", "Backtest", "Seasonality", "AI-assisted brief"]
 )
@@ -50,7 +73,15 @@ forecast_tab, validation_tab, seasonality_tab, brief_tab = st.tabs(
 with forecast_tab:
     history = series.iloc[-60:]
     figure = go.Figure()
-    figure.add_trace(go.Scatter(x=history.index, y=history, name="Observed", line=dict(color="#1f4e79")))
+    figure.add_trace(
+        go.Scatter(
+            x=history.index,
+            y=history,
+            name="Observed",
+            line=dict(color=NAVY, width=2.5),
+            hovertemplate="%{x|%b %Y}<br>$%{y:,.0f}M<extra>Observed</extra>",
+        )
+    )
     figure.add_trace(
         go.Scatter(
             x=result.upper_80.index,
@@ -58,6 +89,7 @@ with forecast_tab:
             name="Approx. 80% upper",
             line=dict(width=0),
             showlegend=False,
+            hoverinfo="skip",
         )
     )
     figure.add_trace(
@@ -66,8 +98,9 @@ with forecast_tab:
             y=result.lower_80,
             name="Approx. 80% interval",
             fill="tonexty",
-            fillcolor="rgba(41, 128, 185, .18)",
+            fillcolor="rgba(15,138,123,.16)",
             line=dict(width=0),
+            hoverinfo="skip",
         )
     )
     figure.add_trace(
@@ -75,19 +108,22 @@ with forecast_tab:
             x=result.future_forecast.index,
             y=result.future_forecast,
             name="Holt–Winters forecast",
-            line=dict(color="#c0392b", width=3),
+            line=dict(color=TEAL, width=3.5),
+            hovertemplate="%{x|%b %Y}<br>$%{y:,.0f}M<extra>Forecast</extra>",
         )
     )
     figure.update_layout(
         title=f"Observed history and {horizon}-month forecast",
         yaxis_title="Millions of U.S. dollars",
         hovermode="x unified",
-        height=500,
     )
+    style_plotly(figure, height=510)
     st.plotly_chart(figure, width="stretch")
-    st.caption(
-        "The interval is an empirical approximation based on 24-month backtest residuals. "
-        "It is not a formal prediction interval and may understate structural shocks."
+    render_notice(
+        "amber",
+        "±",
+        "Read the band carefully",
+        "The shaded range is an empirical approximation from 24-month backtest residuals. It is not a formal prediction interval and may understate a structural shock.",
     )
     download = result.future_forecast.rename("forecast_millions_usd").to_csv().encode("utf-8")
     st.download_button(
@@ -109,18 +145,22 @@ with validation_tab:
         comparison,
         x=comparison.index,
         y=comparison.columns,
-        title="24-month holdout: forecast versus actual",
+        title="Latest 24-month holdout: forecast versus actual",
         labels={"value": "Millions of U.S. dollars", "variable": "Series", "x": "Month"},
+        color_discrete_map={"Actual": NAVY, "Holt–Winters": TEAL, "Year-ago baseline": GOLD},
     )
+    figure.update_traces(line=dict(width=2.7))
+    style_plotly(figure, height=470)
     st.plotly_chart(figure, width="stretch")
     v1, v2, v3 = st.columns(3)
     v1.metric("Model MAE", f"${result.mae:,.0f}M")
     v2.metric("Model RMSE", f"${result.rmse:,.0f}M")
     v3.metric("Seasonal-naive MAE", f"${result.naive_mae:,.0f}M")
-    st.write(
-        "The holdout is the latest 24 months. The benchmark predicts each month with the "
-        "observed value from 12 months earlier. This prevents claiming value from a complex "
-        "model without checking whether a simple baseline is already competitive."
+    render_notice(
+        "teal",
+        "✓",
+        "Why the baseline matters",
+        "The benchmark predicts each month with the value observed 12 months earlier. The candidate should earn its complexity by reducing error against this credible shortcut.",
     )
 
 with seasonality_tab:
@@ -133,13 +173,17 @@ with seasonality_tab:
         title="Average monthly sales index over the latest 10 years",
         labels={"month": "Month", "index": "Index (year average = 1.00)"},
         color="index",
-        color_continuous_scale="Blues",
+        color_continuous_scale=[[0, "#DDF7F1"], [0.65, TEAL], [1, NAVY]],
     )
     fig.update_coloraxes(showscale=False)
+    fig.add_hline(y=1.0, line_dash="dash", line_color="#7D9190")
+    style_plotly(fig, height=460, show_legend=False)
     st.plotly_chart(fig, width="stretch")
-    st.write(
-        "Because RSAFSNA is not seasonally adjusted, recurring calendar patterns remain in "
-        "the data. December is typically elevated, while January and February tend to reset."
+    render_notice(
+        "navy",
+        "12",
+        "Calendar pattern retained",
+        "Because RSAFSNA is not seasonally adjusted, December is typically elevated while January and February reset below the yearly average.",
     )
 
 with brief_tab:
@@ -162,9 +206,17 @@ with brief_tab:
             ),
         }
     )
+    render_notice(
+        "navy",
+        "AI",
+        "Controlled planning brief",
+        "The text layer receives the displayed backtest metrics and analyst-approved context. It does not fit or alter the forecast.",
+    )
     st.markdown(brief)
     st.caption(
         "Source: U.S. Census Bureau via FRED, series RSAFSNA. Snapshot date: "
         f"{series.index.max():%d %B %Y}."
     )
-    st.link_button("Open the source series on FRED", "https://fred.stlouisfed.org/series/RSAFSNA")
+    st.link_button("Open source series on FRED", "https://fred.stlouisfed.org/series/RSAFSNA")
+
+render_footer()

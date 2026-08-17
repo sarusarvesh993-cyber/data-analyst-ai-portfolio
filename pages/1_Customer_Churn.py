@@ -11,18 +11,34 @@ from portfolio_app.churn import (
     threshold_metrics,
     train_churn_model,
 )
+from portfolio_app.ui import (
+    NAVY,
+    TEAL,
+    configure_page,
+    inject_global_css,
+    render_footer,
+    render_notice,
+    render_page_header,
+    render_section,
+    render_sidebar,
+    style_plotly,
+)
 from utils.ai_insights import generate_insights
 
-st.set_page_config(page_title="Customer Churn | Sarvesh Kommawar", page_icon="📉", layout="wide")
-st.title("01 · Customer Churn & Retention")
-st.write(
-    "**Business question:** Which customer profiles should the retention team prioritize, "
-    "and how does the decision threshold change workload and recall?"
+configure_page("Customer Churn", "📉")
+inject_global_css()
+render_sidebar()
+render_page_header(
+    "Project 01 · Retention analytics",
+    "Customer Churn & Retention",
+    "Identify which customer profiles to prioritize and see how the score threshold changes campaign workload, precision, and recall.",
+    ["Classification", "Logistic regression", "ROC–AUC 0.886", "Decision thresholds"],
 )
-st.warning(
-    "Portfolio demonstration: the 5,000-customer dataset is synthetic and generated from a "
-    "fixed seed. Findings demonstrate the workflow and must not be treated as estimates for "
-    "a real company."
+render_notice(
+    "amber",
+    "!",
+    "Demonstration dataset",
+    "The 5,000 customer records are generated from a fixed seed. The page demonstrates a reproducible workflow; its findings are not estimates for a real company.",
 )
 
 
@@ -40,13 +56,18 @@ data = load_data()
 model_result = load_model()
 
 k1, k2, k3, k4 = st.columns(4)
-k1.metric("Customers", f"{len(data):,}")
+k1.metric("Customer records", f"{len(data):,}")
 k2.metric("Observed churn", f"{data['Churn'].mean():.1%}")
-k3.metric("Holdout ROC–AUC", f"{model_result.auc:.3f}")
-k4.metric("Holdout records", f"{len(model_result.y_test):,}")
+k3.metric("Holdout ROC–AUC", f"{model_result.auc:.3f}", delta="Better than RF")
+k4.metric("Holdout sample", f"{len(model_result.y_test):,}")
 
+render_section(
+    "Interactive analysis",
+    "From portfolio-level patterns to one customer scenario",
+    "Move between the business view, customer score, model diagnostics, and controlled stakeholder brief.",
+)
 overview_tab, scoring_tab, diagnostics_tab, brief_tab = st.tabs(
-    ["Business overview", "Risk scenario", "Model diagnostics", "AI-assisted brief"]
+    ["Overview", "Score a scenario", "Model diagnostics", "AI-assisted brief"]
 )
 
 with overview_tab:
@@ -59,11 +80,11 @@ with overview_tab:
         text_auto=".1%",
         title="Churn rate by contract",
         labels={"Churn": "Churn rate"},
-        color="Churn",
-        color_continuous_scale="Blues",
+        color="Contract",
+        color_discrete_sequence=[TEAL, "#55A6D9", NAVY],
     )
     fig_contract.update_yaxes(tickformat=".0%")
-    fig_contract.update_coloraxes(showscale=False)
+    style_plotly(fig_contract, height=390, show_legend=False)
     left.plotly_chart(fig_contract, width="stretch")
 
     tenure = (
@@ -85,33 +106,38 @@ with overview_tab:
         title="Churn rate by tenure band",
         labels={"tenure_band": "Tenure (months)", "Churn": "Churn rate"},
     )
+    fig_tenure.update_traces(line=dict(color=TEAL, width=4), marker=dict(size=10, color=NAVY))
     fig_tenure.update_yaxes(tickformat=".0%")
+    style_plotly(fig_tenure, height=390, show_legend=False)
     right.plotly_chart(fig_tenure, width="stretch")
 
-    st.markdown("**Decision takeaway**")
-    st.write(
-        "In this generated scenario, month-to-month contracts and early tenure are useful "
-        "signals for prioritization. A real retention program would validate these patterns "
-        "on production data and measure incremental retention with a controlled experiment."
+    render_notice(
+        "teal",
+        "→",
+        "Decision takeaway",
+        "In this generated scenario, month-to-month contracts and early tenure help prioritize outreach. A real retention program should validate the pattern on production data and measure incremental retention with a randomized holdout.",
     )
 
 with scoring_tab:
-    st.subheader("Score one customer scenario")
-    with st.form("customer_form"):
+    st.subheader("Build one customer scenario")
+    st.caption("Adjust the account profile, then calculate its model score.")
+    with st.form("customer_form", border=True):
         c1, c2, c3 = st.columns(3)
         tenure_value = c1.slider("Tenure (months)", 1, 72, 8)
         monthly_value = c1.slider("Monthly charges", 20.0, 120.0, 85.0, 1.0)
+        senior_value = c1.checkbox("Senior citizen")
+
         contract_value = c2.selectbox("Contract", ["Month-to-month", "One year", "Two year"])
         internet_value = c2.selectbox("Internet service", ["DSL", "Fiber optic", "No"])
+        dependents_value = c2.checkbox("Has dependents")
+
         tech_value = c3.selectbox("Tech support", ["No", "Yes"])
         security_value = c3.selectbox("Online security", ["No", "Yes"])
         payment_value = c3.selectbox(
             "Payment method",
             ["Electronic check", "Mailed check", "Bank transfer", "Credit card"],
         )
-        senior_value = c1.checkbox("Senior citizen")
-        dependents_value = c2.checkbox("Has dependents")
-        submitted = st.form_submit_button("Calculate risk")
+        submitted = st.form_submit_button("Calculate customer risk", width="stretch")
 
     if submitted:
         customer = {
@@ -127,16 +153,21 @@ with scoring_tab:
         }
         probability = score_customer(model_result.model, customer)
         band = "High" if probability >= 0.65 else "Medium" if probability >= 0.35 else "Low"
-        st.metric("Estimated churn probability", f"{probability:.1%}", delta=f"{band} priority")
-        st.caption(
-            "This is a model score from synthetic training data, not a probability calibrated "
-            "for a real customer population."
-        )
+        result_col, explanation_col = st.columns([1, 2])
+        result_col.metric("Estimated churn score", f"{probability:.1%}", delta=f"{band} priority")
+        with explanation_col:
+            render_notice(
+                "navy",
+                "i",
+                f"{band} outreach priority",
+                "This score comes from synthetic training data. It demonstrates prioritization logic and is not a probability calibrated for a real customer population.",
+            )
 
 with diagnostics_tab:
     st.subheader("Choose an operating threshold")
+    st.caption("A lower threshold captures more churners but creates more unnecessary contacts.")
     threshold = st.slider(
-        "Flag customers at or above this predicted probability",
+        "Flag customers at or above this score",
         min_value=0.20,
         max_value=0.80,
         value=0.50,
@@ -158,11 +189,13 @@ with diagnostics_tab:
             y=["Actual stay", "Actual churn"],
             text=matrix,
             texttemplate="%{text}",
-            colorscale="Blues",
+            colorscale=[[0, "#E7F5F2"], [0.5, "#55A6D9"], [1, NAVY]],
             showscale=False,
+            hovertemplate="%{y}<br>%{x}<br>Customers: %{z}<extra></extra>",
         )
     )
-    heatmap.update_layout(title="Holdout confusion matrix", height=390)
+    heatmap.update_layout(title="Holdout confusion matrix")
+    style_plotly(heatmap, height=410, show_legend=False)
     left.plotly_chart(heatmap, width="stretch")
 
     importance = feature_importance(model_result).head(10).sort_values("importance")
@@ -173,12 +206,15 @@ with diagnostics_tab:
         orientation="h",
         title="Logistic coefficient magnitude",
         labels={"importance": "Absolute standardized coefficient", "feature": "Feature"},
+        color="importance",
+        color_continuous_scale=[[0, "#BDE9E1"], [1, TEAL]],
     )
+    fig_importance.update_coloraxes(showscale=False)
+    style_plotly(fig_importance, height=410, show_legend=False)
     right.plotly_chart(fig_importance, width="stretch")
     st.caption(
-        "Coefficient magnitude describes association in this fitted model; it is not a causal "
-        "estimate. Threshold selection should reflect contact capacity and the "
-        "cost of missed churners versus unnecessary outreach."
+        "Coefficient magnitude describes association in this fitted model, not causation. "
+        "Threshold selection should reflect contact capacity and the cost of missed churners."
     )
 
 with brief_tab:
@@ -201,10 +237,17 @@ with brief_tab:
             ),
         }
     )
+    render_notice(
+        "navy",
+        "AI",
+        "Controlled text layer",
+        "Only calculated metrics and analyst-selected context reach this layer. The model diagnostics do not depend on the LLM.",
+    )
     st.markdown(brief)
-    with st.expander("How the AI layer is controlled"):
+    with st.expander("How the fallback works"):
         st.write(
-            "Only calculated metrics and analyst-selected context are passed to the text layer. "
-            "Without an HF_TOKEN, the function returns a deterministic authored template. The "
-            "underlying model metrics do not depend on the LLM."
+            "Without an HF_TOKEN, the app returns a deterministic analyst-authored template. "
+            "If the optional inference request fails, the same fallback keeps the page usable."
         )
+
+render_footer()

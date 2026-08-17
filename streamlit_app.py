@@ -1,91 +1,139 @@
 """Entry point for the multi-page analytics portfolio."""
 import streamlit as st
 
-st.set_page_config(
-    page_title="Sarvesh Kommawar | Data Analytics Portfolio",
-    page_icon="📊",
-    layout="wide",
-    initial_sidebar_state="expanded",
+from portfolio_app.ui import (
+    configure_page,
+    inject_global_css,
+    render_footer,
+    render_home_hero,
+    render_notice,
+    render_section,
+    render_sidebar,
 )
 
-st.markdown(
-    """
-    <style>
-    .block-container {padding-top: 2.2rem; padding-bottom: 3rem; max-width: 1180px;}
-    [data-testid="stMetric"] {background: #f7f9fc; border: 1px solid #e4e9f2; padding: 1rem; border-radius: .75rem;}
-    .project-card {border: 1px solid #e4e9f2; border-radius: .8rem; padding: 1.1rem; min-height: 180px;}
-    .eyebrow {color: #1769aa; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: .78rem;}
-    </style>
-    """,
-    unsafe_allow_html=True,
+configure_page("Data Analytics Portfolio", "📊")
+inject_global_css()
+render_sidebar()
+render_home_hero()
+
+kpi1, kpi2, kpi3, kpi4 = st.columns(4)
+kpi1.metric("Interactive projects", "03", help="Three complete analytical workflows")
+kpi2.metric("Automated tests", "10", delta="All passing", delta_color="normal")
+kpi3.metric("Methods covered", "03", help="Classification, forecasting, experimentation")
+kpi4.metric("Core app cost", "₹0", help="No paid API is required")
+
+render_section(
+    "Featured work",
+    "Choose a business problem to explore",
+    "Each page connects the analytical method to a decision, exposes its assumptions, and lets you interact with the result.",
 )
 
-st.markdown('<p class="eyebrow">Data analyst portfolio</p>', unsafe_allow_html=True)
-st.title("From business question to measurable decision")
-st.write(
-    "I use Python, statistics, machine learning, and interactive dashboards to turn "
-    "messy questions into decisions a stakeholder can act on."
-)
-
-left, middle, right = st.columns(3)
-left.metric("Projects available", "3")
-middle.metric("Live analytical workflows", "3")
-right.metric("Core app cost", "₹0")
-
-st.subheader("Explore the work")
 col1, col2, col3 = st.columns(3)
 with col1:
     st.markdown(
         """
-        <div class="project-card">
-        <b>01 · Customer churn</b><br><br>
-        Prioritize retention outreach using a reproducible classifier, adjustable decision threshold, and customer-level risk scenario.
+        <div class="project-card" style="--accent:#0F8A7B;--soft:#DDF7F1;">
+            <div class="project-number">01</div>
+            <div class="project-title">Customer Churn &amp; Retention</div>
+            <div class="project-copy">
+                Prioritize retention outreach with a reproducible classifier,
+                adjustable threshold, and customer-level risk scenario.
+            </div>
+            <span class="tag">Classification</span>
+            <span class="tag">ROC–AUC 0.886</span>
+            <span class="tag">Thresholds</span>
         </div>
         """,
         unsafe_allow_html=True,
     )
-    st.page_link("pages/1_Customer_Churn.py", label="Open churn project →")
+    st.page_link("pages/1_Customer_Churn.py", label="Explore customer churn →", width="stretch")
+
 with col2:
     st.markdown(
         """
-        <div class="project-card">
-        <b>02 · U.S. retail sales forecast</b><br><br>
-        Backtest a seasonal forecast against a year-ago baseline and examine the uncertainty around the next planning horizon.
+        <div class="project-card" style="--accent:#F4A340;--soft:#FFF0D9;">
+            <div class="project-number">02</div>
+            <div class="project-title">U.S. Retail Sales Forecast</div>
+            <div class="project-copy">
+                Backtest a seasonal forecast against a year-ago baseline and
+                examine uncertainty over the next planning horizon.
+            </div>
+            <span class="tag">Time series</span>
+            <span class="tag">36.4% MAE gain</span>
+            <span class="tag">Backtesting</span>
         </div>
         """,
         unsafe_allow_html=True,
     )
-    st.page_link("pages/2_Retail_Sales_Forecast.py", label="Open forecasting project →")
+    st.page_link("pages/2_Retail_Sales_Forecast.py", label="Explore the forecast →", width="stretch")
+
 with col3:
     st.markdown(
         """
-        <div class="project-card">
-        <b>03 · A/B test calculator</b><br><br>
-        Evaluate conversion lift, confidence intervals, practical significance, expected impact, and required sample size.
+        <div class="project-card" style="--accent:#7C6CE7;--soft:#ECE9FF;">
+            <div class="project-number">03</div>
+            <div class="project-title">A/B Test Decision Calculator</div>
+            <div class="project-copy">
+                Evaluate conversion lift, confidence intervals, practical
+                significance, expected impact, and required sample size.
+            </div>
+            <span class="tag">Experimentation</span>
+            <span class="tag">Confidence intervals</span>
+            <span class="tag">Power</span>
         </div>
         """,
         unsafe_allow_html=True,
     )
-    st.page_link("pages/3_AB_Test_Calculator.py", label="Open experiment project →")
+    st.page_link("pages/3_AB_Test_Calculator.py", label="Explore the experiment →", width="stretch")
 
-st.subheader("What this portfolio demonstrates")
-skill1, skill2, skill3, skill4 = st.columns(4)
-skill1.markdown("**Analysis**\n\npandas · EDA · KPI design")
-skill2.markdown("**Statistics**\n\nA/B tests · confidence intervals · backtesting")
-skill3.markdown("**Modeling**\n\nclassification · forecasting · threshold selection")
-skill4.markdown("**Delivery**\n\nStreamlit · GitHub · reproducible workflows")
+render_section(
+    "Capabilities",
+    "What this portfolio demonstrates",
+    "A balanced data analyst workflow: prepare evidence, validate the method, explain the result, and deliver it clearly.",
+)
+cap1, cap2, cap3, cap4 = st.columns(4)
+for column, icon, title, copy in [
+    (cap1, "01", "Business analysis", "KPI design, exploratory analysis, and decision-focused recommendations."),
+    (cap2, "02", "Statistical rigor", "Confidence intervals, A/B tests, baselines, and time-based validation."),
+    (cap3, "03", "Predictive methods", "Classification, model comparison, threshold selection, and forecasting."),
+    (cap4, "04", "Delivery", "Streamlit interfaces, GitHub workflow, automated tests, and reproducibility."),
+]:
+    with column:
+        st.markdown(
+            f"""
+            <div class="capability-card">
+                <div class="capability-icon">{icon}</div>
+                <div class="capability-title">{title}</div>
+                <div class="capability-copy">{copy}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
-st.divider()
-st.markdown("### AI use and analytical ownership")
-st.write(
-    "The numerical analysis in every project is deterministic and reviewable. An optional "
-    "LLM layer translates calculated metrics into a draft stakeholder brief; it does not "
-    "create data, choose the model, or calculate results. AI-produced text is labeled and "
-    "the app remains fully functional without an API token."
+render_section("Workflow", "How I approach an analytics problem")
+step1, step2, step3, step4 = st.columns(4)
+for column, step, title, copy in [
+    (step1, "STEP 01", "Frame", "Define the decision, stakeholder, metric, and constraints."),
+    (step2, "STEP 02", "Validate", "Check data quality and compare with a credible baseline."),
+    (step3, "STEP 03", "Analyze", "Use an appropriate statistical or predictive method."),
+    (step4, "STEP 04", "Recommend", "State the action, uncertainty, limitation, and next test."),
+]:
+    with column:
+        st.markdown(
+            f"""
+            <div class="process-card">
+                <div class="process-step">{step}</div>
+                <div class="process-title">{title}</div>
+                <div class="process-copy">{copy}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+render_notice(
+    "navy",
+    "AI",
+    "AI use is controlled and explicit",
+    "The quantitative analysis is deterministic and reviewable. An optional LLM receives only approved metrics to draft a stakeholder brief; it does not create the data, select the model, or calculate the results.",
 )
-st.markdown(
-    "Portfolio by **Sarvesh Kommawar** · "
-    "[GitHub](https://github.com/sarusarvesh993-cyber) · "
-    "[LinkedIn](https://www.linkedin.com/in/sarvesh-kommawar-3b166b278/) · "
-    "[Email](mailto:kommawar57@gmail.com)"
-)
+render_footer()
