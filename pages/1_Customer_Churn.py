@@ -64,7 +64,7 @@ with overview_tab:
     )
     fig_contract.update_yaxes(tickformat=".0%")
     fig_contract.update_coloraxes(showscale=False)
-    left.plotly_chart(fig_contract, use_container_width=True)
+    left.plotly_chart(fig_contract, width="stretch")
 
     tenure = (
         data.assign(
@@ -86,7 +86,7 @@ with overview_tab:
         labels={"tenure_band": "Tenure (months)", "Churn": "Churn rate"},
     )
     fig_tenure.update_yaxes(tickformat=".0%")
-    right.plotly_chart(fig_tenure, use_container_width=True)
+    right.plotly_chart(fig_tenure, width="stretch")
 
     st.markdown("**Decision takeaway**")
     st.write(
@@ -163,7 +163,7 @@ with diagnostics_tab:
         )
     )
     heatmap.update_layout(title="Holdout confusion matrix", height=390)
-    left.plotly_chart(heatmap, use_container_width=True)
+    left.plotly_chart(heatmap, width="stretch")
 
     importance = feature_importance(model_result).head(10).sort_values("importance")
     fig_importance = px.bar(
@@ -171,10 +171,10 @@ with diagnostics_tab:
         x="importance",
         y="feature",
         orientation="h",
-        title="Random-forest feature importance",
-        labels={"importance": "Importance", "feature": "Feature"},
+        title="Logistic coefficient magnitude",
+        labels={"importance": "Absolute standardized coefficient", "feature": "Feature"},
     )
-    right.plotly_chart(fig_importance, use_container_width=True)
+    right.plotly_chart(fig_importance, width="stretch")
     st.caption(
         "Coefficient magnitude describes association in this fitted model; it is not a causal "
         "estimate. Threshold selection should reflect contact capacity and the "

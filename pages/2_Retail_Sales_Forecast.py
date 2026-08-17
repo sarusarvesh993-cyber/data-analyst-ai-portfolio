@@ -84,7 +84,7 @@ with forecast_tab:
         hovermode="x unified",
         height=500,
     )
-    st.plotly_chart(figure, use_container_width=True)
+    st.plotly_chart(figure, width="stretch")
     st.caption(
         "The interval is an empirical approximation based on 24-month backtest residuals. "
         "It is not a formal prediction interval and may understate structural shocks."
@@ -112,7 +112,7 @@ with validation_tab:
         title="24-month holdout: forecast versus actual",
         labels={"value": "Millions of U.S. dollars", "variable": "Series", "x": "Month"},
     )
-    st.plotly_chart(figure, use_container_width=True)
+    st.plotly_chart(figure, width="stretch")
     v1, v2, v3 = st.columns(3)
     v1.metric("Model MAE", f"${result.mae:,.0f}M")
     v2.metric("Model RMSE", f"${result.rmse:,.0f}M")
@@ -136,7 +136,7 @@ with seasonality_tab:
         color_continuous_scale="Blues",
     )
     fig.update_coloraxes(showscale=False)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
     st.write(
         "Because RSAFSNA is not seasonally adjusted, recurring calendar patterns remain in "
         "the data. December is typically elevated, while January and February tend to reset."

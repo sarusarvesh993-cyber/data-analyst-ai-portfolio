@@ -30,7 +30,7 @@ st.write(
 left, middle, right = st.columns(3)
 left.metric("Projects available", "3")
 middle.metric("Live analytical workflows", "3")
-right.metric("Cost to run", "₹0")
+right.metric("Core app cost", "₹0")
 
 st.subheader("Explore the work")
 col1, col2, col3 = st.columns(3)
@@ -83,8 +83,9 @@ st.write(
     "create data, choose the model, or calculate results. AI-produced text is labeled and "
     "the app remains fully functional without an API token."
 )
-st.caption(
-    "Portfolio by Sarvesh Kommawar · "
-    "GitHub: github.com/sarusarvesh993-cyber · "
-    "LinkedIn: linkedin.com/in/sarvesh-kommawar-3b166b278"
+st.markdown(
+    "Portfolio by **Sarvesh Kommawar** · "
+    "[GitHub](https://github.com/sarusarvesh993-cyber) · "
+    "[LinkedIn](https://www.linkedin.com/in/sarvesh-kommawar-3b166b278/) · "
+    "[Email](mailto:kommawar57@gmail.com)"
 )

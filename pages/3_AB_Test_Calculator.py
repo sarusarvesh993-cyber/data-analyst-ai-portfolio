@@ -89,7 +89,7 @@ with calculator_tab:
         )
         figure.update_yaxes(tickformat=".1%")
         figure.update_layout(showlegend=False)
-        st.plotly_chart(figure, use_container_width=True)
+        st.plotly_chart(figure, width="stretch")
 
 with planner_tab:
     st.subheader("Plan before launching")
