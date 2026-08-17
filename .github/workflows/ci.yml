@@ -1,0 +1,38 @@
+name: portfolio-checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      - name: Run unit tests
+        run: pytest -q
+
+      - name: Compile application code
+        run: python -m compileall -q portfolio_app pages streamlit_app.py
+
+      - name: Check project data generators
+        run: |
+          python 01-customer-churn/generate_data.py
+          python 03-ab-test/generate_data.py

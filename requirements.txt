@@ -1,14 +1,10 @@
-pandas
-numpy
-matplotlib
-seaborn
-scikit-learn
-scipy
-statsmodels
-plotly
-jupyter
-nbconvert
-ipykernel
-python-dotenv
-requests
-streamlit
+# Runtime dependencies for the Streamlit app (tested together in August 2026)
+streamlit==1.61.1
+pandas==3.0.5
+numpy==2.5.2
+scikit-learn==1.9.0
+scipy==1.18.0
+statsmodels==0.14.6
+plotly==6.9.0
+requests==2.34.2
+python-dotenv==1.2.3
