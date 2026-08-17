@@ -30,7 +30,7 @@ jobs:
         run: pytest -q
 
       - name: Compile application code
-        run: python -m compileall -q portfolio_app pages streamlit_app.py
+        run: python -m compileall -q portfolio_app pages streamlit_app.py ecommerce_dash_app.py
 
       - name: Check project data generators
         run: |

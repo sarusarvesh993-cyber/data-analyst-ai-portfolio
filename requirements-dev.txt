@@ -4,4 +4,5 @@ seaborn==0.13.2
 jupyter==1.1.1
 nbconvert==7.17.1
 ipykernel==7.3.0
+duckdb==1.5.5
 pytest>=8.0,<10.0

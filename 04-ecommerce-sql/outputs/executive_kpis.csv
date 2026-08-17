@@ -1,0 +1,2 @@
+first_order_date,last_order_date,delivered_orders,unique_customers,items_sold,item_gmv_brl,payment_value_brl,average_order_gmv_brl,repeat_customer_rate_pct,on_time_delivery_rate_pct,average_delivery_days,average_review_score,canceled_unavailable_rate_pct
+2016-09-15,2018-08-29,96478,93358,110197,13221498.11,15422461.77,137.04,3.0,91.89,12.5,4.16,1.24

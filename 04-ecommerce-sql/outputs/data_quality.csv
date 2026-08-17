@@ -1,0 +1,9 @@
+check_name,issue_count,check_status
+delivered_missing_delivery_date,8,REVIEW
+duplicate_customer_ids,0,PASS
+duplicate_order_ids,0,PASS
+duplicate_order_item_keys,0,PASS
+nonpositive_item_price,0,PASS
+orphan_customer_orders,0,PASS
+orphan_order_items,0,PASS
+orphan_payments,0,PASS

@@ -17,9 +17,9 @@ render_sidebar()
 render_home_hero()
 
 kpi1, kpi2, kpi3, kpi4 = st.columns(4)
-kpi1.metric("Interactive projects", "03", help="Three complete analytical workflows")
-kpi2.metric("Automated tests", "10", delta="All passing", delta_color="normal")
-kpi3.metric("Methods covered", "03", help="Classification, forecasting, experimentation")
+kpi1.metric("Interactive projects", "04", help="Four complete analytical workflows")
+kpi2.metric("Automated tests", "18", delta="All passing", delta_color="normal")
+kpi3.metric("Methods covered", "04", help="Classification, forecasting, experimentation, and SQL")
 kpi4.metric("Core app cost", "₹0", help="No paid API is required")
 
 render_section(
@@ -28,7 +28,7 @@ render_section(
     "Each page connects the analytical method to a decision, exposes its assumptions, and lets you interact with the result.",
 )
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 with col1:
     st.markdown(
         """
@@ -86,6 +86,25 @@ with col3:
     )
     st.page_link("pages/3_AB_Test_Calculator.py", label="Explore the experiment →", width="stretch")
 
+with col4:
+    st.markdown(
+        """
+        <div class="project-card" style="--accent:#E26D5A;--soft:#FDE8E3;">
+            <div class="project-number">04</div>
+            <div class="project-title">E-commerce SQL Analytics</div>
+            <div class="project-copy">
+                Analyze 100K marketplace orders with safe SQL grains,
+                cohort retention, delivery KPIs, and a standalone Dash app.
+            </div>
+            <span class="tag">DuckDB SQL</span>
+            <span class="tag">Plotly Dash</span>
+            <span class="tag">Cohorts</span>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.page_link("pages/4_Ecommerce_SQL.py", label="Explore SQL analytics →", width="stretch")
+
 render_section(
     "Capabilities",
     "What this portfolio demonstrates",
@@ -95,8 +114,8 @@ cap1, cap2, cap3, cap4 = st.columns(4)
 for column, icon, title, copy in [
     (cap1, "01", "Business analysis", "KPI design, exploratory analysis, and decision-focused recommendations."),
     (cap2, "02", "Statistical rigor", "Confidence intervals, A/B tests, baselines, and time-based validation."),
-    (cap3, "03", "Predictive methods", "Classification, model comparison, threshold selection, and forecasting."),
-    (cap4, "04", "Delivery", "Streamlit interfaces, GitHub workflow, automated tests, and reproducibility."),
+    (cap3, "03", "SQL & data modeling", "Relational joins, safe analytical grains, cohorts, and quality checks."),
+    (cap4, "04", "Application delivery", "Streamlit, Plotly Dash, automated tests, and GitHub deployment workflow."),
 ]:
     with column:
         st.markdown(

@@ -1,0 +1,3 @@
+delivery_status,delivered_orders,average_delivery_days,average_late_days,average_review_score,five_star_review_rate_pct,low_review_rate_pct
+On time,88163,10.81,0.0,4.29,62.38,9.19
+Late,7661,31.34,8.76,2.57,22.2,53.99
