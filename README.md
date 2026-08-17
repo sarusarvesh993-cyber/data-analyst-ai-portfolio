@@ -39,4 +39,4 @@ Top projects are also shipped as live Streamlit apps (see each folder's deploy n
 
 ## Contact
 - GitHub: [@sarusarvesh993-cyber](https://github.com/sarusarvesh993-cyber)
-- Email / LinkedIn: _add yours_
+- Email / LinkedIn:kommawar57@gmail.com / https://www.linkedin.com/in/sarvesh-kommawar-3b166b278/
