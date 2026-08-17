@@ -1,0 +1,2 @@
+snapshot_date,customers,orders,gross_revenue,returned_value,net_revenue_proxy,average_order_value,repeat_customer_rate_pct,at_risk_historical_value,selected_cluster_count,selected_silhouette_score,selected_seed_stability_ari,identified_sales_value_coverage_pct,analysis_start_date,analysis_end_date
+2011-12-10,4338,18532,8911407.904,611342.0900000001,8300065.813999999,480.8659563997409,65.58321807284463,1163700.392,5,0.3169524396910465,0.9921772414124519,83.54430907973797,2010-12-01,2011-12-09

@@ -11,7 +11,6 @@ from portfolio_app.ecommerce import brl, cohort_matrix, load_outputs, weighted_r
 from portfolio_app.ui import (
     GOLD,
     NAVY,
-    PURPLE,
     TEAL,
     configure_page,
     inject_global_css,
@@ -71,10 +70,10 @@ monthly_view = monthly.loc[monthly["purchase_month"].between(start_month, end_mo
 
 k1, k2, k3, k4, k5 = st.columns(5)
 k1.metric("Delivered orders", f"{int(kpis['delivered_orders']):,}")
-k2.metric("Item GMV", brl(float(kpis["item_gmv_brl"])))
+k2.metric("Delivered-order GMV", brl(float(kpis["item_gmv_brl"])))
 k3.metric("Average order GMV", brl(float(kpis["average_order_gmv_brl"]), 0))
-k4.metric("Repeat customers", f"{kpis['repeat_customer_rate_pct']:.1f}%")
-k5.metric("On-time delivery", f"{kpis['on_time_delivery_rate_pct']:.1f}%")
+k4.metric("Repeat-customer rate", f"{kpis['repeat_customer_rate_pct']:.1f}%")
+k5.metric("On-time delivery rate", f"{kpis['on_time_delivery_rate_pct']:.1f}%")
 
 render_section(
     "Marketplace workspace",

@@ -1,0 +1,12 @@
+check_name,issue_count,check_status
+raw_rows,541909,INFO
+missing_customer_id_rows,135080,REVIEW
+cancellation_invoice_rows,9288,INFO
+non_positive_quantity_rows,10624,INFO
+non_positive_price_rows,2517,REVIEW
+exact_duplicate_rows,5268,REVIEW
+valid_identified_purchase_rows,397884,PASS
+identified_return_rows,8905,PASS
+duplicate_customer_feature_rows,0,PASS
+unassigned_rfm_segment_rows,0,PASS
+unassigned_cluster_rows,0,PASS

@@ -10,6 +10,7 @@ APP_FILES = [
     ROOT / "pages" / "2_Retail_Sales_Forecast.py",
     ROOT / "pages" / "3_AB_Test_Calculator.py",
     ROOT / "pages" / "4_Ecommerce_SQL.py",
+    ROOT / "pages" / "5_Customer_Segmentation.py",
 ]
 
 

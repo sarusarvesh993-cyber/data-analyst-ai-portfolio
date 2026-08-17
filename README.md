@@ -1,8 +1,8 @@
 # Data Analyst Portfolio — Sarvesh Kommawar
 
-End-to-end analytics work covering classification, time-series forecasting, experimentation, SQL, and decision-focused dashboards. Each project starts with a business question, validates its method, states its limitations, and ends with an action a stakeholder can evaluate.
+End-to-end analytics work covering classification, time-series forecasting, experimentation, SQL, customer segmentation, and decision-focused dashboards. Each project starts with a business question, validates its method, states its limitations, and ends with an action a stakeholder can evaluate.
 
-> **Live portfolio:** [Open the multi-page Streamlit app](https://data-analyst-ai-portfolio-pynrfe2h5275msvq22c7uh.streamlit.app/). Project 04 is available directly at [E-commerce SQL Analytics](https://data-analyst-ai-portfolio-pynrfe2h5275msvq22c7uh.streamlit.app/Ecommerce_SQL).
+> **Live portfolio:** [Open the multi-page Streamlit app](https://data-analyst-ai-portfolio-pynrfe2h5275msvq22c7uh.streamlit.app/). Direct links: [Project 04 · E-commerce SQL](https://data-analyst-ai-portfolio-pynrfe2h5275msvq22c7uh.streamlit.app/Ecommerce_SQL) · [Project 05 · Customer Segmentation](https://data-analyst-ai-portfolio-pynrfe2h5275msvq22c7uh.streamlit.app/Customer_Segmentation).
 
 ## Projects
 
@@ -12,13 +12,13 @@ End-to-end analytics work covering classification, time-series forecasting, expe
 | 02 | [U.S. Retail Sales Forecast](02-sales-forecasting/) | time-series backtesting, Holt–Winters, baseline comparison | Analysis + app ready |
 | 03 | [A/B Test Decision Calculator](03-ab-test/) | hypothesis testing, confidence intervals, power, practical significance | Analysis + app ready |
 | 04 | [E-commerce Revenue & Cohort Analysis](04-ecommerce-sql/) | SQL, DuckDB, data modeling, cohorts, delivery KPIs | Analysis + Streamlit dashboard ready |
-| 05 | Customer Segmentation & Marketing Dashboard | RFM, clustering, Power BI, campaign targeting | Next build |
+| 05 | [Customer Segmentation & Marketing Dashboard](05-customer-segmentation/) | RFM, K-means validation, campaign design, Power BI | Analysis + Streamlit + BI companion ready |
 
 ## Skills demonstrated now
 
-`Python` · `SQL` · `DuckDB` · `pandas` · `scikit-learn` · `statsmodels` · `SciPy` · `Plotly` · `Streamlit` · `statistics` · `cohort analysis` · `data modeling` · `model validation` · `Git/GitHub`
+`Python` · `SQL` · `DuckDB` · `pandas` · `scikit-learn` · `statsmodels` · `SciPy` · `Plotly` · `Streamlit` · `Power BI Desktop` · `DAX` · `statistics` · `cohort analysis` · `RFM segmentation` · `clustering` · `data modeling` · `model validation` · `Git/GitHub`
 
-Power BI will be added through Project 05 rather than claimed before the supporting work exists.
+Project 05 includes reviewed Power BI-ready tables, DAX measures, a theme, and a Desktop build guide. It does not claim an unvalidated `.pbix` binary.
 
 ## Run the portfolio app
 
@@ -62,15 +62,20 @@ Pop-Location
 
 The forecasting notebook reads a committed FRED snapshot used by the app. Run `python .\02-sales-forecasting\download_data.py` when intentionally refreshing the source data.
 
-To reproduce the SQL project from the public Olist source:
+To reproduce Projects 04 and 05 from their public sources:
 
 ```powershell
 python .\04-ecommerce-sql\download_data.py
 python .\04-ecommerce-sql\build_warehouse.py
 python .\04-ecommerce-sql\run_analysis.py
+python .\04-ecommerce-sql\render_assets.py
+
+python .\05-customer-segmentation\download_data.py
+python .\05-customer-segmentation\build_segments.py
+python .\05-customer-segmentation\render_assets.py
 ```
 
-Raw Olist files and the local DuckDB database are ignored by Git; only small reviewed aggregates are committed for the live dashboard.
+Raw source files and the local DuckDB database are ignored by Git; only reviewed dashboard outputs are committed for reliable deployment.
 
 ## AI-assisted insight layer
 
@@ -88,6 +93,7 @@ This feature is explicit so a reviewer can distinguish quantitative work from ge
 - **Forecasting:** U.S. Census Bureau data via FRED, series `RSAFSNA`, not seasonally adjusted. It is a macro indicator, not store/SKU demand.
 - **A/B testing:** calculator accepts real aggregate counts; the included example data are seeded and synthetic.
 - **E-commerce SQL:** real anonymized Olist marketplace data from 2016–2018 under CC BY-NC-SA 4.0. Item GMV is not accounting revenue, and delivery-review relationships are descriptive rather than causal.
+- **Customer segmentation:** real anonymized UCI Online Retail transactions under CC BY 4.0. Completed-purchase value is not profit, customer-level coverage excludes unidentified purchases, and segments do not establish campaign treatment effects.
 
 Each project README lists assumptions, methodology, source attribution, and appropriate use.
 
@@ -112,6 +118,7 @@ GitHub Actions runs the automated tests on every push and pull request.
 ├── 02-sales-forecasting/         # notebook, source refresh, findings
 ├── 03-ab-test/                   # notebook, data generator, findings
 ├── 04-ecommerce-sql/             # DuckDB warehouse, SQL, outputs, source notes
+├── 05-customer-segmentation/     # RFM, clustering, campaign and Power BI artifacts
 └── utils/ai_insights.py          # optional text-generation layer
 ```
 

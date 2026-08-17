@@ -54,22 +54,25 @@ Completed deliverables:
 
 **Primary gaps filled:** segmentation, campaign design, Power BI.
 
-Planned deliverables:
+Completed deliverables:
 
-- transaction-level customer data with source and license;
-- RFM segmentation baseline plus clustering comparison;
-- segment stability and business naming rules;
-- campaign matrix with audience, offer, channel, and KPI;
-- Power BI dashboard screenshots and `.pbix`/project artifact created in Power BI Desktop;
-- final Streamlit summary page linking the analytical and BI work.
+- [x] Real transaction-level UCI Online Retail data with source and CC BY 4.0 license recorded.
+- [x] Reproducible purchase, return, customer-feature, and quality-check pipeline.
+- [x] Transparent RFM baseline with seven campaign activation segments.
+- [x] K-means challenger evaluated on separation, compactness, size, and seed stability.
+- [x] Deterministic business naming rules and rules-to-cluster comparison.
+- [x] Campaign matrix with audience, treatment, channel, KPI, guardrail, and holdout design.
+- [x] Full five-tab Streamlit command center with safe anonymized audience exports.
+- [x] Power BI-ready outputs, theme, reviewed DAX, Desktop guide, and reproducible layout preview.
+- [x] Explicit boundary that a `.pbix` will only be claimed after official Desktop validation.
 
 ## Final portfolio release
 
 - [x] One consistent visual style and navigation.
 - [x] No unsupported skill claims.
-- [ ] Live links and screenshots in every README.
-- [ ] Data sources, licenses, assumptions, and limitations clearly stated.
-- [ ] All tests green on GitHub Actions.
+- [x] Live links and screenshots in every project README.
+- [x] Data sources, licenses, assumptions, and limitations clearly stated.
+- [x] All local tests green; GitHub Actions validates every push.
 - [ ] Personal project retrospectives written in Sarvesh's own words.
 - [ ] Prepare a 90-second and a 5-minute explanation for each project.
 

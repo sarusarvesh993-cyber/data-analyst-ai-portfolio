@@ -297,6 +297,36 @@ def inject_global_css() -> None:
         .process-title { color: var(--navy-dark); font-size: .9rem; font-weight: 800; margin-top: .35rem; }
         .process-copy { color: var(--muted); font-size: .72rem; margin-top: .28rem; line-height: 1.45; }
 
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: .8rem;
+            margin: 1rem 0 1.2rem;
+        }
+        .strategy-card {
+            background: rgba(255,255,255,.96);
+            border: 1px solid var(--line);
+            border-left: 4px solid var(--teal);
+            border-radius: .9rem;
+            padding: 1rem 1.05rem;
+            min-height: 102px;
+            box-shadow: 0 8px 22px rgba(16,42,67,.045);
+        }
+        .strategy-label {
+            color: var(--teal);
+            font-size: .68rem;
+            font-weight: 850;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-bottom: .4rem;
+        }
+        .strategy-value {
+            color: var(--navy-dark);
+            font-size: .88rem;
+            line-height: 1.5;
+            font-weight: 650;
+        }
+
         .notice {
             display: flex; gap: .9rem; align-items: flex-start;
             padding: 1rem 1.1rem; border-radius: 1rem; margin: .7rem 0 1.2rem;
@@ -376,6 +406,7 @@ def inject_global_css() -> None:
             .home-hero, .page-hero { padding: 1.7rem 1.35rem; border-radius: 1.15rem; }
             .home-hero h1, .page-hero h1 { font-size: 2rem; }
             .project-card { min-height: auto; }
+            .strategy-grid { grid-template-columns: 1fr; }
         }
         </style>
         """,
@@ -420,15 +451,15 @@ def render_home_hero() -> None:
             <span class="hero-kicker">● Available for data analyst opportunities</span>
             <h1>Hi, I'm Sarvesh. I turn business questions into clear decisions.</h1>
             <p class="hero-copy">
-                Explore four interactive analytics workflows spanning retention,
-                forecasting, experimentation, and SQL—each with tested calculations,
-                honest limitations, and a stakeholder-ready recommendation.
+                Explore five interactive analytics workflows spanning retention,
+                forecasting, experimentation, SQL, and segmentation—each with tested
+                calculations, honest limitations, and a stakeholder-ready recommendation.
             </p>
             <div class="hero-badges">
                 <span class="hero-badge">Python analytics</span>
                 <span class="hero-badge">Statistical validation</span>
-                <span class="hero-badge">Interactive dashboards</span>
-                <span class="hero-badge">14 automated tests</span>
+                <span class="hero-badge">Streamlit + Power BI</span>
+                <span class="hero-badge">19 automated tests</span>
             </div>
         </div>
         """,
