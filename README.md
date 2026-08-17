@@ -1,6 +1,6 @@
 # Data Analyst AI Portfolio
 
-> End-to-end analytics projects that pair a real ML model with an **AI insight layer** (an LLM that turns numbers into plain-English business briefs). Built 100% free — no paid APIs.
+> End-to-end analytics projects that pair a real ML model with an **AI insight layer** (an LLM that turns numbers into plain-English business briefs). Built 100% free - no paid APIs.
 
 I'm a data analyst who builds the full loop: **business question → data → model → dashboard → recommendation**. Every project below combines a classical ML/statistics model with a free LLM layer that explains the result to non-technical stakeholders.
 
@@ -23,7 +23,7 @@ I'm a data analyst who builds the full loop: **business question → data → mo
 ## How the "AI" works (free)
 Each project's model outputs metrics; `utils/ai_insights.py` turns them into a stakeholder brief.
 - **With a free `HF_TOKEN`** (set in `.env`): calls a free HuggingFace model.
-- **Without a token**: uses the bundled, authored narrative — fully functional, **zero cost, nothing breaks**.
+- **Without a token**: uses the bundled, authored narrative - fully functional, **zero cost, nothing breaks**.
 
 ## Run anything
 ```bash
