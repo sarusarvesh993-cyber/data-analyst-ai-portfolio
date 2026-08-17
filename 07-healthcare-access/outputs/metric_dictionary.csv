@@ -1,0 +1,7 @@
+metric,definition,unit,interpretation_boundary
+urban_facility_mapping_pct,Cities with completed urban health-facility mapping / cities covered,%,Higher is better; values over 100 are retained source inconsistencies
+phc_three_nurse_readiness_pct,PHCs reporting three staff nurses / PHCs,%,"Staffing readiness proxy, not full workforce adequacy"
+facilities_24x7_per_100k,"Reported rural/sub-district, UPHC, and UCHC 24x7 facilities per 100K Census-2011 population",rate,"Uses dated population and does not measure beds, staffing quality, or travel time"
+district_hospitals_per_million,District hospitals per million Census-2011 population,rate,"Facility count does not measure beds, quality, or travel time"
+imr,Infant mortality rate from SRS 2023,"per 1,000 live births",Missing for some states/UTs
+review_priority_score,"Mean percentile of low 24x7 density, low PHC staffing readiness, low urban mapping, and high IMR",0-100,Screening index only; requires at least three components

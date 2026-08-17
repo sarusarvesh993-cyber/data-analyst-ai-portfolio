@@ -17,12 +17,12 @@ render_sidebar()
 render_home_hero()
 
 kpi1, kpi2, kpi3, kpi4 = st.columns(4)
-kpi1.metric("Interactive projects", "06", help="Six complete analytical workflows")
-kpi2.metric("Automated tests", "24", delta="All passing", delta_color="normal")
+kpi1.metric("Interactive projects", "07", help="Seven distinct analytical workflows")
+kpi2.metric("Automated tests", "29", delta="All passing", delta_color="normal")
 kpi3.metric(
     "Methods covered",
-    "06",
-    help="Classification, forecasting, experimentation, SQL, segmentation, and FP&A",
+    "07",
+    help="Classification, forecasting, experimentation, SQL, segmentation, FP&A, and healthcare operations",
 )
 kpi4.metric("Core app cost", "₹0", help="No paid API is required")
 
@@ -34,6 +34,7 @@ render_section(
 
 row1 = st.columns(3)
 row2 = st.columns(3)
+row3 = st.columns([1, 1, 1])
 projects = [
     (
         row1[0],
@@ -100,6 +101,17 @@ projects = [
         "#E6F3EA",
         "pages/6_Financial_Planning.py",
         "Explore financial planning →",
+    ),
+    (
+        row3[1],
+        "07",
+        "Healthcare Access & Readiness",
+        "Parse official NHM reports, model state access and staffing in DuckDB, and screen review priorities with visible data quality.",
+        ["Healthcare", "DuckDB", "Public data"],
+        "#B44C67",
+        "#F9E7EC",
+        "pages/7_Healthcare_Access.py",
+        "Explore healthcare access →",
     ),
 ]
 for column, number, title, copy, tags, accent, soft, page, label in projects:

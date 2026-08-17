@@ -1,7 +1,7 @@
 # Portfolio Roadmap
 
 - Target role: **Data Analyst**
-- Strategy: **six distinct, deep projects** rather than repeated templates
+- Strategy: **seven distinct, deep projects** rather than repeated templates
 - Delivery: **one consistent multi-page Streamlit portfolio plus reviewed Excel and Power BI companion artifacts**
 
 ## Quality standard for every project
@@ -81,6 +81,20 @@ Completed deliverables:
 - [x] Five-tab Streamlit command center with public-finance drilldowns and interactive corporate scenarios.
 - [x] Power BI-ready outputs, theme, DAX, Desktop guide, validation checklist, and layout preview.
 - [x] Automated schema, reconciliation, filtering, scenario-direction, workbook, and Streamlit smoke tests.
+
+### Project 07 — India Healthcare Access & Readiness
+
+**Primary gaps filled:** healthcare domain analysis, PDF extraction, data-quality-aware prioritization, and public-sector operations.
+
+Completed deliverables:
+
+- [x] Official NHM 2025-26 quarterly MIS reports with source and mixed-period limitations recorded.
+- [x] Reproducible PDF download and extraction for 36 states/UTs.
+- [x] DuckDB state access/readiness mart with facility, staffing, mapping, and outcome metrics.
+- [x] Completeness-aware four-component review-priority screen.
+- [x] Five-tab Streamlit command center with exportable priority table.
+- [x] Power BI-ready outputs, theme, DAX, guide, and layout target.
+- [x] Parser-output reconciliation, missing-data, filter, priority-export, and smoke tests.
 
 ## Final portfolio release
 

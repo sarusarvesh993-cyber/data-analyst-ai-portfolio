@@ -1,0 +1,5 @@
+focus_group,states_and_uts,sub_centres,phcs,chcs,district_hospitals,facilities_24x7,median_urban_mapping_pct,median_phc_three_nurse_readiness_pct,median_imr,median_review_priority_score
+High Focus - NE,8,8423.0,1624.0,386.0,102.0,1142.0,100.0,67.63902932254803,14.0,41.484593837535016
+High Focus - Non-NE,10,90009.0,12614.0,3505.0,455.0,10118.0,100.0,6.555183946488294,29.0,61.54761904761905
+Non-High Focus - Large,11,84415.0,11956.0,2478.0,193.0,11828.0,98.76543209876543,37.003405221339385,17.0,55.71195144724557
+Non-High Focus - Small & UT,7,715.0,115.0,19.0,34.0,99.0,100.0,85.8974358974359,9.0,31.851851851851848

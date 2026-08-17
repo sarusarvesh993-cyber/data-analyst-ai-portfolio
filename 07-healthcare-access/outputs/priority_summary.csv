@@ -1,0 +1,37 @@
+state,focus_group,review_priority_score,review_priority_band,priority_component_count,data_completeness_pct,facilities_24x7_per_100k,phc_three_nurse_readiness_pct,urban_facility_mapping_pct,imr,u5mr
+Uttar Pradesh,High Focus - Non-NE,89.95681605975724,Higher review priority,4,100.0,0.8628110423798371,5.441952506596306,88.54166666666667,37.0,42.0
+Odisha,High Focus - Non-NE,84.30088702147526,Higher review priority,4,100.0,1.1507123457378376,5.9689922480620154,90.0,30.0,35.0
+Delhi,Non-High Focus - Small & UT,81.00529100529101,Higher review priority,3,75.0,0.0,,0.0,14.0,16.0
+Jharkhand,High Focus - Non-NE,74.28863211951446,Higher review priority,4,100.0,1.2640960349217898,0.0,100.0,29.0,32.0
+West Bengal,Non-High Focus - Large,72.76552287581698,Higher review priority,4,100.0,0.6639204171961961,25.275938189845476,89.79591836734694,17.0,18.0
+Bihar,High Focus - Non-NE,70.43067226890756,Higher review priority,4,100.0,1.1748431781285122,6.153846153846154,100.0,23.0,27.0
+Gujarat,Non-High Focus - Large,69.94514472455649,Higher review priority,4,100.0,1.6694242223692919,10.3086014445174,94.50549450549451,20.0,23.0
+Telangana,Non-High Focus - Large,67.03703703703704,Higher review priority,3,75.0,,37.003405221339385,75.0,18.0,22.0
+Chandigarh,Non-High Focus - Small & UT,61.992880485527536,Higher review priority,4,62.5,0.2843601895734597,0.0,100.0,7.0,
+Uttarakhand,High Focus - Non-NE,61.709850606909434,Higher review priority,4,100.0,1.6755899266309737,6.956521739130435,100.0,20.0,23.0
+Madhya Pradesh,High Focus - Non-NE,61.38538748832867,Moderate review priority,4,100.0,2.3462348713288446,14.147018030513177,100.0,37.0,44.0
+Kerala,Non-High Focus - Large,59.07913165266107,Moderate review priority,4,100.0,1.4338741543435312,33.333333333333336,60.215053763440864,5.0,8.0
+Chhattisgarh,High Focus - Non-NE,58.61227824463119,Moderate review priority,4,100.0,1.9064396163632804,45.490196078431374,100.0,37.0,41.0
+Assam,High Focus - NE,57.97852474323062,Moderate review priority,4,100.0,1.7080048708581683,42.63322884012539,100.0,32.0,35.0
+Haryana,Non-High Focus - Large,56.02007469654529,Moderate review priority,4,100.0,1.6212378209932548,54.54545454545455,100.0,26.0,30.0
+Karnataka,Non-High Focus - Large,55.71195144724557,Moderate review priority,4,100.0,2.1834847368851786,23.24074074074074,98.76543209876543,14.0,17.0
+Punjab,Non-High Focus - Large,52.97560690943044,Moderate review priority,4,100.0,1.474245755686119,49.8812351543943,100.0,17.0,22.0
+Himachal Pradesh,High Focus - Non-NE,52.2875816993464,Moderate review priority,4,87.5,1.6314639475600872,0.0,133.33333333333334,14.0,17.0
+Jammu & Kashmir,High Focus - Non-NE,48.94724556489262,Moderate review priority,4,87.5,2.1688860537437207,17.694369973190348,100.0,14.0,15.0
+Arunachal Pradesh,High Focus - NE,48.83169934640523,Moderate review priority,4,62.5,8.453757225433526,62.23776223776224,66.66666666666667,20.0,
+Meghalaya,High Focus - NE,47.790616246498594,Moderate review priority,4,62.5,3.10077519379845,64.34782608695652,100.0,34.0,
+Maharashtra,Non-High Focus - Large,47.43464052287582,Moderate review priority,4,100.0,2.8832292167227296,13.603275705186533,100.0,14.0,16.0
+Andhra Pradesh,Non-High Focus - Large,43.24112978524744,Lower review priority,4,100.0,1.626842907981698,100.0,100.0,19.0,21.0
+Rajasthan,High Focus - Non-NE,42.37686741363212,Lower review priority,4,100.0,5.145299644045049,59.31333859510655,100.0,29.0,34.0
+Goa,Non-High Focus - Large,41.885504201680675,Lower review priority,4,62.5,1.4393420150788212,54.166666666666664,100.0,6.0,
+Nagaland,High Focus - NE,41.71451914098973,Lower review priority,4,62.5,4.244567963617989,9.16030534351145,100.0,10.0,
+Tamil Nadu,Non-High Focus - Large,41.37955182072829,Lower review priority,4,100.0,3.4027748901548227,91.12959112959113,10.429447852760736,12.0,13.0
+Mizoram,High Focus - NE,41.254668534080295,Lower review priority,4,62.5,6.472196900638104,84.21052631578948,50.0,13.0,
+Andaman & Nicobar Islands,Non-High Focus - Small & UT,36.670168067226896,Lower review priority,4,62.5,6.824146981627297,90.9090909090909,0.0,9.0,
+Tripura,High Focus - NE,33.00536881419235,Lower review priority,4,62.5,3.538377789874796,84.68468468468468,100.0,15.0,
+Ladakh,Non-High Focus - Small & UT,31.851851851851848,Lower review priority,3,37.5,,37.5,100.0,4.0,
+Dadra & Nagar Haveli and Daman & Diu,Non-High Focus - Small & UT,30.451680672268903,Lower review priority,4,62.5,2.385008517887564,84.61538461538461,100.0,9.0,
+Puducherry,Non-High Focus - Small & UT,30.228174603174608,Lower review priority,4,62.5,2.1634615384615383,87.17948717948718,100.0,7.0,
+Manipur,High Focus - NE,24.118814192343603,Lower review priority,4,62.5,3.11624649859944,70.93023255813954,100.0,3.0,
+Sikkim,High Focus - NE,17.89390756302521,Lower review priority,4,62.5,4.25531914893617,100.0,100.0,6.0,
+Lakshadweep,Non-High Focus - Small & UT,11.218487394957984,Lower review priority,3,50.0,15.625,100.0,,9.0,

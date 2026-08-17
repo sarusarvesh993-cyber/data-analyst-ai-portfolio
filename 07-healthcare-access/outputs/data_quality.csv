@@ -1,0 +1,10 @@
+check_name,issue_count,check_status
+parsed_state_ut_rows,36,PASS
+duplicate_state_rows,0,PASS
+missing_or_zero_population_rows,2,REVIEW
+missing_imr_rows,0,PASS
+missing_mmr_rows,17,REVIEW
+urban_mapping_above_100_pct_rows,1,REVIEW
+phc_staffing_above_100_pct_rows,0,PASS
+insufficient_priority_component_rows,0,PASS
+negative_facility_count_cells,0,PASS
