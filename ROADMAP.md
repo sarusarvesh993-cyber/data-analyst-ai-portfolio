@@ -2,7 +2,7 @@
 
 - Target role: **Data Analyst**
 - Strategy: **five distinct, deep projects** rather than eight repeated templates
-- Delivery: **one multi-page Streamlit portfolio hub plus purpose-built standalone apps when they demonstrate an additional skill**
+- Delivery: **one consistent multi-page Streamlit portfolio app**
 
 ## Quality standard for every project
 
@@ -32,7 +32,7 @@ A project is complete only when it has:
 - [x] Pass local tests and a Streamlit smoke test.
 - [x] Push the reviewed work to GitHub.
 - [x] Deploy `streamlit_app.py` on Streamlit Community Cloud.
-- [ ] Add the public app URL to the root and project READMEs.
+- [x] Add the public app URL to the root and project READMEs.
 
 ### Project 04 — E-commerce Revenue & Cohort Analysis
 
@@ -45,10 +45,10 @@ Completed deliverables:
 - [x] SQL for GMV KPIs, repeat purchase, cohorts, retention, delivery, and categories.
 - [x] Explicit order-level grains and automated protection against join multiplication.
 - [x] Eight data-quality checks with reviewed handling of incomplete delivery timestamps.
-- [x] Streamlit portfolio summary plus standalone Plotly Dash command center.
-- [x] Callback-driven date, state, and category controls that respect each output grain.
-- [x] Visible SQL, modern comparison tables, and an exportable stakeholder brief.
-- [x] Free Plotly Cloud deployment workflow documented; public URL pending first publish.
+- [x] Full interactive Streamlit page with five analytical views.
+- [x] Date-window, cohort-maturity, and category controls that respect each output grain.
+- [x] Visible SQL, quality-check table, and an AI-assisted stakeholder brief with deterministic fallback.
+- [x] Public Project 04 URL documented.
 
 ### Project 05 — Customer Segmentation & Marketing Dashboard
 

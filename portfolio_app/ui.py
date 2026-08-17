@@ -428,7 +428,7 @@ def render_home_hero() -> None:
                 <span class="hero-badge">Python analytics</span>
                 <span class="hero-badge">Statistical validation</span>
                 <span class="hero-badge">Interactive dashboards</span>
-                <span class="hero-badge">18 automated tests</span>
+                <span class="hero-badge">14 automated tests</span>
             </div>
         </div>
         """,

@@ -18,7 +18,7 @@ render_home_hero()
 
 kpi1, kpi2, kpi3, kpi4 = st.columns(4)
 kpi1.metric("Interactive projects", "04", help="Four complete analytical workflows")
-kpi2.metric("Automated tests", "18", delta="All passing", delta_color="normal")
+kpi2.metric("Automated tests", "14", delta="All passing", delta_color="normal")
 kpi3.metric("Methods covered", "04", help="Classification, forecasting, experimentation, and SQL")
 kpi4.metric("Core app cost", "₹0", help="No paid API is required")
 
@@ -94,11 +94,11 @@ with col4:
             <div class="project-title">E-commerce SQL Analytics</div>
             <div class="project-copy">
                 Analyze 100K marketplace orders with safe SQL grains,
-                cohort retention, delivery KPIs, and a standalone Dash app.
+                cohort retention, delivery KPIs, and category performance.
             </div>
             <span class="tag">DuckDB SQL</span>
-            <span class="tag">Plotly Dash</span>
             <span class="tag">Cohorts</span>
+            <span class="tag">Data quality</span>
         </div>
         """,
         unsafe_allow_html=True,
@@ -115,7 +115,7 @@ for column, icon, title, copy in [
     (cap1, "01", "Business analysis", "KPI design, exploratory analysis, and decision-focused recommendations."),
     (cap2, "02", "Statistical rigor", "Confidence intervals, A/B tests, baselines, and time-based validation."),
     (cap3, "03", "SQL & data modeling", "Relational joins, safe analytical grains, cohorts, and quality checks."),
-    (cap4, "04", "Application delivery", "Streamlit, Plotly Dash, automated tests, and GitHub deployment workflow."),
+    (cap4, "04", "Interactive delivery", "One consistent Streamlit app, automated tests, and a GitHub deployment workflow."),
 ]:
     with column:
         st.markdown(

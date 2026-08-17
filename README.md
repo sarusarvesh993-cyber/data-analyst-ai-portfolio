@@ -2,7 +2,7 @@
 
 End-to-end analytics work covering classification, time-series forecasting, experimentation, SQL, and decision-focused dashboards. Each project starts with a business question, validates its method, states its limitations, and ends with an action a stakeholder can evaluate.
 
-> **Live app:** deployment is the next release step. Until the public URL is added, run the multi-page Streamlit app locally with `streamlit run streamlit_app.py`.
+> **Live portfolio:** [Open the multi-page Streamlit app](https://data-analyst-ai-portfolio-pynrfe2h5275msvq22c7uh.streamlit.app/). Project 04 is available directly at [E-commerce SQL Analytics](https://data-analyst-ai-portfolio-pynrfe2h5275msvq22c7uh.streamlit.app/Ecommerce_SQL).
 
 ## Projects
 
@@ -11,12 +11,12 @@ End-to-end analytics work covering classification, time-series forecasting, expe
 | 01 | [Customer Churn & Retention](01-customer-churn/) | EDA, classification, ROC–AUC, threshold trade-offs | Analysis + app ready |
 | 02 | [U.S. Retail Sales Forecast](02-sales-forecasting/) | time-series backtesting, Holt–Winters, baseline comparison | Analysis + app ready |
 | 03 | [A/B Test Decision Calculator](03-ab-test/) | hypothesis testing, confidence intervals, power, practical significance | Analysis + app ready |
-| 04 | [E-commerce Revenue & Cohort Analysis](04-ecommerce-sql/) | SQL, DuckDB, data modeling, cohorts, Plotly Dash | Analysis + standalone app ready |
+| 04 | [E-commerce Revenue & Cohort Analysis](04-ecommerce-sql/) | SQL, DuckDB, data modeling, cohorts, delivery KPIs | Analysis + Streamlit dashboard ready |
 | 05 | Customer Segmentation & Marketing Dashboard | RFM, clustering, Power BI, campaign targeting | Next build |
 
 ## Skills demonstrated now
 
-`Python` · `SQL` · `DuckDB` · `pandas` · `scikit-learn` · `statsmodels` · `SciPy` · `Plotly` · `Plotly Dash` · `Streamlit` · `statistics` · `cohort analysis` · `data modeling` · `model validation` · `Git/GitHub`
+`Python` · `SQL` · `DuckDB` · `pandas` · `scikit-learn` · `statsmodels` · `SciPy` · `Plotly` · `Streamlit` · `statistics` · `cohort analysis` · `data modeling` · `model validation` · `Git/GitHub`
 
 Power BI will be added through Project 05 rather than claimed before the supporting work exists.
 
@@ -39,14 +39,6 @@ If PowerShell blocks activation, run this once in the same terminal:
 ```powershell
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ```
-
-Project 04 also has a standalone Plotly Dash command center:
-
-```powershell
-python ecommerce_dash_app.py
-```
-
-Open `http://127.0.0.1:8050`. The Streamlit page acts as the portfolio summary and links to the public Dash app after its Plotly Cloud URL is configured.
 
 ### Reproduce the notebooks
 
@@ -103,7 +95,7 @@ Each project README lists assumptions, methodology, source attribution, and appr
 
 ```powershell
 pytest -q
-python -m compileall portfolio_app pages streamlit_app.py ecommerce_dash_app.py
+python -m compileall portfolio_app pages streamlit_app.py
 ```
 
 GitHub Actions runs the automated tests on every push and pull request.
@@ -113,9 +105,7 @@ GitHub Actions runs the automated tests on every push and pull request.
 ```text
 .
 ├── streamlit_app.py              # multi-page portfolio entry point
-├── ecommerce_dash_app.py         # standalone Project 04 Dash entry point
-├── assets/                        # standalone Dash visual system
-├── pages/                         # one Streamlit summary/explorer per project
+├── pages/                         # one interactive Streamlit page per project
 ├── portfolio_app/                # reusable calculations and models
 ├── tests/                        # automated checks
 ├── 01-customer-churn/            # notebook, data generator, findings

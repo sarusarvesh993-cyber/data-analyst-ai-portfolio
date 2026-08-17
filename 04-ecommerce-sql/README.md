@@ -28,8 +28,8 @@ payments, reviews, products, and sellers. See [DATA_SOURCE.md](DATA_SOURCE.md)
 for attribution, license, and limitations.
 
 Raw data are excluded from Git. Small aggregated outputs are committed so the
-public Streamlit summary and standalone Plotly Dash command center start
-quickly without downloading 43 MB on every cold start.
+public Streamlit dashboard starts quickly without downloading 43 MB on every
+cold start.
 
 ## Warehouse design
 
@@ -59,28 +59,15 @@ items-to-payments join would multiply rows and inflate marketplace value.
 | `07_category_performance.sql` | Category value, volume, delivery, and ratings |
 | `08_data_quality.sql` | Key, orphan, price, and date checks |
 
-## Application delivery
+## Interactive dashboard
 
-Project 04 intentionally uses two delivery layers:
+[Open Project 04 in the public Streamlit portfolio](https://data-analyst-ai-portfolio-pynrfe2h5275msvq22c7uh.streamlit.app/Ecommerce_SQL).
 
-1. `pages/4_Ecommerce_SQL.py` is the concise project summary inside the main
-   Streamlit portfolio.
-2. `ecommerce_dash_app.py` is the standalone Plotly Dash command center with
-   callback-driven filters, five analytical views, SQL inspection, quality
-   evidence, and an exportable executive brief.
-
-The app does not claim unsupported multidimensional filtering. The date,
-state, and category controls update the monthly, state, and category outputs
-at their actual committed grains.
-
-Run the standalone app from the repository root:
-
-```powershell
-python ecommerce_dash_app.py
-```
-
-Then open `http://127.0.0.1:8050`. See [DEPLOYMENT.md](DEPLOYMENT.md) for the
-free Plotly Cloud publication workflow.
+The dashboard provides five analytical views: executive trend, cohort
+retention, delivery experience, category performance, and visible SQL with
+quality checks. Its controls operate on committed dashboard-ready outputs at
+explicit grains; the app does not imply unsupported cross-filtering between
+unrelated aggregate tables.
 
 ## Reproduce from raw data
 
@@ -93,7 +80,6 @@ python .\04-ecommerce-sql\run_analysis.py
 python .\04-ecommerce-sql\render_assets.py
 python -m pytest -q
 python -m streamlit run streamlit_app.py
-python ecommerce_dash_app.py
 ```
 
 The first command downloads approximately 43 MB. No paid service is required.
