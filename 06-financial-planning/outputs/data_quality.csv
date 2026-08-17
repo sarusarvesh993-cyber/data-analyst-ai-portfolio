@@ -1,0 +1,11 @@
+check_name,issue_count,check_status
+source_rows,57267.0,INFO
+duplicate_key_rows,0.0,PASS
+missing_dimension_cells,0.0,PASS
+zero_budget_rows,26552.0,REVIEW
+positive_spend_with_zero_budget_rows,13688.0,REVIEW
+positive_spend_with_zero_budget_value,435194203.15999997,REVIEW
+negative_budget_rows,1242.0,REVIEW
+negative_expenditure_rows,768.0,REVIEW
+fiscal_year_values,1.0,PASS
+through_quarter_values,1.0,PASS

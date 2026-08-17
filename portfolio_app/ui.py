@@ -451,15 +451,15 @@ def render_home_hero() -> None:
             <span class="hero-kicker">● Available for data analyst opportunities</span>
             <h1>Hi, I'm Sarvesh. I turn business questions into clear decisions.</h1>
             <p class="hero-copy">
-                Explore five interactive analytics workflows spanning retention,
-                forecasting, experimentation, SQL, and segmentation—each with tested
-                calculations, honest limitations, and a stakeholder-ready recommendation.
+                Explore six interactive analytics workflows spanning retention,
+                forecasting, experimentation, SQL, segmentation, and financial planning—each
+                with tested calculations, honest limitations, and a stakeholder-ready recommendation.
             </p>
             <div class="hero-badges">
-                <span class="hero-badge">Python analytics</span>
+                <span class="hero-badge">Python + SQL analytics</span>
                 <span class="hero-badge">Statistical validation</span>
-                <span class="hero-badge">Streamlit + Power BI</span>
-                <span class="hero-badge">19 automated tests</span>
+                <span class="hero-badge">Streamlit · Excel · Power BI</span>
+                <span class="hero-badge">24 automated tests</span>
             </div>
         </div>
         """,

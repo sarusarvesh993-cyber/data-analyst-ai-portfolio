@@ -1,0 +1,2 @@
+budget_fiscal_year,through_quarter,elapsed_pct,source_rows,departments,funds,programs,annual_budget,expenditures_to_date,expected_spend_to_date,remaining_budget,utilization_pct,pace_variance,linear_run_rate_proxy,projected_variance_proxy,above_pace_departments,zero_budget_spend_rows,zero_budget_spend_value
+2026,3,75.0,57267,40,156,196,8101990455.95,6021243202.0,6076492841.9625,2080747253.9499998,74.31807325295075,-55249639.96249962,8028324269.333333,-73666186.6166668,6,13688,435194203.15999997

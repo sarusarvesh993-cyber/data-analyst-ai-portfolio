@@ -1,8 +1,8 @@
 # Portfolio Roadmap
 
 - Target role: **Data Analyst**
-- Strategy: **five distinct, deep projects** rather than eight repeated templates
-- Delivery: **one consistent multi-page Streamlit portfolio app**
+- Strategy: **six distinct, deep projects** rather than repeated templates
+- Delivery: **one consistent multi-page Streamlit portfolio plus reviewed Excel and Power BI companion artifacts**
 
 ## Quality standard for every project
 
@@ -65,6 +65,22 @@ Completed deliverables:
 - [x] Full five-tab Streamlit command center with safe anonymized audience exports.
 - [x] Power BI-ready outputs, theme, reviewed DAX, Desktop guide, and reproducible layout preview.
 - [x] Explicit boundary that a `.pbix` will only be claimed after official Desktop validation.
+
+### Project 06 — Financial Planning & Variance Command Center
+
+**Primary gaps filled:** FP&A, advanced Excel delivery, budget ownership, and scenario planning.
+
+Completed deliverables:
+
+- [x] Current real City of Austin FY2026 budget-versus-expenditure source with terms and accounting caveats recorded.
+- [x] Reproducible 57K-row download, validation, management-category mapping, and aggregate output pipeline.
+- [x] Department, fund, program, expense, pacing, and run-rate proxy analysis.
+- [x] Explicit boundary between a Q3 straight-line monitoring benchmark and an accounting forecast.
+- [x] Separate seeded corporate model for revenue, COGS, OPEX, EBITDA, and scenarios, visibly labeled synthetic.
+- [x] Nine-sheet formula-driven Excel workbook with editable assumptions, tables, formulas, and charts.
+- [x] Five-tab Streamlit command center with public-finance drilldowns and interactive corporate scenarios.
+- [x] Power BI-ready outputs, theme, DAX, Desktop guide, validation checklist, and layout preview.
+- [x] Automated schema, reconciliation, filtering, scenario-direction, workbook, and Streamlit smoke tests.
 
 ## Final portfolio release
 

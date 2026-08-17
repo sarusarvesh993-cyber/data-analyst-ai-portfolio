@@ -1,0 +1,253 @@
+month,fiscal_year,month_number,period_status,business_unit,statement_group,line_item,budget_amount,actual_amount,base_forecast_amount,pnl_sign,is_synthetic
+2026-01-01,2026,1,Actual,Enterprise,Revenue,Subscription revenue,5280000.0,5188222.65,5188222.65,1,True
+2026-01-01,2026,1,Actual,Enterprise,Revenue,Professional services revenue,1188000.0,1168992.47,1168992.47,1,True
+2026-01-01,2026,1,Actual,Enterprise,COGS,Cloud hosting,858330.0,921641.52,921641.52,-1,True
+2026-01-01,2026,1,Actual,Enterprise,COGS,Customer support delivery,412335.0,432339.07,432339.07,-1,True
+2026-01-01,2026,1,Actual,Enterprise,Operating expense,Sales & marketing,1312740.0,1347165.45,1347165.45,-1,True
+2026-01-01,2026,1,Actual,Enterprise,Operating expense,Product & engineering,1571585.4,1575428.73,1575428.73,-1,True
+2026-01-01,2026,1,Actual,Enterprise,Operating expense,General & administrative,723690.0,722384.47,722384.47,-1,True
+2026-01-01,2026,1,Actual,SMB,Revenue,Subscription revenue,3200000.0,3094700.59,3094700.59,1,True
+2026-01-01,2026,1,Actual,SMB,Revenue,Professional services revenue,720000.0,726897.58,726897.58,1,True
+2026-01-01,2026,1,Actual,SMB,COGS,Cloud hosting,520200.0,537717.16,537717.16,-1,True
+2026-01-01,2026,1,Actual,SMB,COGS,Customer support delivery,249900.0,261641.54,261641.54,-1,True
+2026-01-01,2026,1,Actual,SMB,Operating expense,Sales & marketing,795600.0,870740.28,870740.28,-1,True
+2026-01-01,2026,1,Actual,SMB,Operating expense,Product & engineering,952476.0,987384.98,987384.98,-1,True
+2026-01-01,2026,1,Actual,SMB,Operating expense,General & administrative,438600.0,448767.2,448767.2,-1,True
+2026-01-01,2026,1,Actual,Customer Solutions,Revenue,Subscription revenue,2240000.0,2210180.52,2210180.52,1,True
+2026-01-01,2026,1,Actual,Customer Solutions,Revenue,Professional services revenue,504000.0,498212.91,498212.91,1,True
+2026-01-01,2026,1,Actual,Customer Solutions,COGS,Cloud hosting,364140.0,387524.62,387524.62,-1,True
+2026-01-01,2026,1,Actual,Customer Solutions,COGS,Customer support delivery,174930.0,175109.82,175109.82,-1,True
+2026-01-01,2026,1,Actual,Customer Solutions,Operating expense,Sales & marketing,556920.0,610919.66,610919.66,-1,True
+2026-01-01,2026,1,Actual,Customer Solutions,Operating expense,Product & engineering,666733.2,689236.68,689236.68,-1,True
+2026-01-01,2026,1,Actual,Customer Solutions,Operating expense,General & administrative,307020.0,304065.99,304065.99,-1,True
+2026-02-01,2026,2,Actual,Enterprise,Revenue,Subscription revenue,5372400.0,5146634.35,5146634.35,1,True
+2026-02-01,2026,2,Actual,Enterprise,Revenue,Professional services revenue,1208790.0,1257822.79,1257822.79,1,True
+2026-02-01,2026,2,Actual,Enterprise,COGS,Cloud hosting,841500.0,884531.59,884531.59,-1,True
+2026-02-01,2026,2,Actual,Enterprise,COGS,Customer support delivery,404250.0,410027.46,410027.46,-1,True
+2026-02-01,2026,2,Actual,Enterprise,Operating expense,Sales & marketing,1287000.0,1372195.1,1372195.1,-1,True
+2026-02-01,2026,2,Actual,Enterprise,Operating expense,Product & engineering,1563540.0,1639071.07,1639071.07,-1,True
+2026-02-01,2026,2,Actual,Enterprise,Operating expense,General & administrative,709500.0,712434.56,712434.56,-1,True
+2026-02-01,2026,2,Actual,SMB,Revenue,Subscription revenue,3256000.0,3208196.43,3208196.43,1,True
+2026-02-01,2026,2,Actual,SMB,Revenue,Professional services revenue,732600.0,747816.49,747816.49,1,True
+2026-02-01,2026,2,Actual,SMB,COGS,Cloud hosting,510000.0,565356.01,565356.01,-1,True
+2026-02-01,2026,2,Actual,SMB,COGS,Customer support delivery,245000.0,248635.71,248635.71,-1,True
+2026-02-01,2026,2,Actual,SMB,Operating expense,Sales & marketing,780000.0,828511.27,828511.27,-1,True
+2026-02-01,2026,2,Actual,SMB,Operating expense,Product & engineering,947600.0,961487.72,961487.72,-1,True
+2026-02-01,2026,2,Actual,SMB,Operating expense,General & administrative,430000.0,434471.78,434471.78,-1,True
+2026-02-01,2026,2,Actual,Customer Solutions,Revenue,Subscription revenue,2279200.0,2286548.84,2286548.84,1,True
+2026-02-01,2026,2,Actual,Customer Solutions,Revenue,Professional services revenue,512820.0,516487.34,516487.34,1,True
+2026-02-01,2026,2,Actual,Customer Solutions,COGS,Cloud hosting,357000.0,369136.6,369136.6,-1,True
+2026-02-01,2026,2,Actual,Customer Solutions,COGS,Customer support delivery,171500.0,172252.54,172252.54,-1,True
+2026-02-01,2026,2,Actual,Customer Solutions,Operating expense,Sales & marketing,546000.0,595830.59,595830.59,-1,True
+2026-02-01,2026,2,Actual,Customer Solutions,Operating expense,Product & engineering,663320.0,698861.58,698861.58,-1,True
+2026-02-01,2026,2,Actual,Customer Solutions,Operating expense,General & administrative,301000.0,303582.24,303582.24,-1,True
+2026-03-01,2026,3,Actual,Enterprise,Revenue,Subscription revenue,5440041.49,5213530.45,5213530.45,1,True
+2026-03-01,2026,3,Actual,Enterprise,Revenue,Professional services revenue,1224009.34,1243353.62,1243353.62,1,True
+2026-03-01,2026,3,Actual,Enterprise,COGS,Cloud hosting,841500.0,890237.28,890237.28,-1,True
+2026-03-01,2026,3,Actual,Enterprise,COGS,Customer support delivery,404250.0,416566.37,416566.37,-1,True
+2026-03-01,2026,3,Actual,Enterprise,Operating expense,Sales & marketing,1287000.0,1411563.22,1411563.22,-1,True
+2026-03-01,2026,3,Actual,Enterprise,Operating expense,Product & engineering,1586310.0,1650698.15,1650698.15,-1,True
+2026-03-01,2026,3,Actual,Enterprise,Operating expense,General & administrative,709500.0,717994.73,717994.73,-1,True
+2026-03-01,2026,3,Actual,SMB,Revenue,Subscription revenue,3296994.85,3220140.17,3220140.17,1,True
+2026-03-01,2026,3,Actual,SMB,Revenue,Professional services revenue,741823.84,754603.97,754603.97,1,True
+2026-03-01,2026,3,Actual,SMB,COGS,Cloud hosting,510000.0,546098.92,546098.92,-1,True
+2026-03-01,2026,3,Actual,SMB,COGS,Customer support delivery,245000.0,242199.92,242199.92,-1,True
+2026-03-01,2026,3,Actual,SMB,Operating expense,Sales & marketing,780000.0,832266.41,832266.41,-1,True
+2026-03-01,2026,3,Actual,SMB,Operating expense,Product & engineering,961400.0,983743.59,983743.59,-1,True
+2026-03-01,2026,3,Actual,SMB,Operating expense,General & administrative,430000.0,420982.06,420982.06,-1,True
+2026-03-01,2026,3,Actual,Customer Solutions,Revenue,Subscription revenue,2307896.39,2234323.99,2234323.99,1,True
+2026-03-01,2026,3,Actual,Customer Solutions,Revenue,Professional services revenue,519276.69,543876.66,543876.66,1,True
+2026-03-01,2026,3,Actual,Customer Solutions,COGS,Cloud hosting,357000.0,368907.46,368907.46,-1,True
+2026-03-01,2026,3,Actual,Customer Solutions,COGS,Customer support delivery,171500.0,179938.99,179938.99,-1,True
+2026-03-01,2026,3,Actual,Customer Solutions,Operating expense,Sales & marketing,546000.0,563978.83,563978.83,-1,True
+2026-03-01,2026,3,Actual,Customer Solutions,Operating expense,Product & engineering,672980.0,690900.03,690900.03,-1,True
+2026-03-01,2026,3,Actual,Customer Solutions,Operating expense,General & administrative,301000.0,300719.72,300719.72,-1,True
+2026-04-01,2026,4,Actual,Enterprise,Revenue,Subscription revenue,5464800.0,5408269.69,5408269.69,1,True
+2026-04-01,2026,4,Actual,Enterprise,Revenue,Professional services revenue,1229580.0,1263738.55,1263738.55,1,True
+2026-04-01,2026,4,Actual,Enterprise,COGS,Cloud hosting,841500.0,904472.54,904472.54,-1,True
+2026-04-01,2026,4,Actual,Enterprise,COGS,Customer support delivery,404250.0,410831.95,410831.95,-1,True
+2026-04-01,2026,4,Actual,Enterprise,Operating expense,Sales & marketing,1287000.0,1368648.83,1368648.83,-1,True
+2026-04-01,2026,4,Actual,Enterprise,Operating expense,Product & engineering,1609080.0,1699911.6,1699911.6,-1,True
+2026-04-01,2026,4,Actual,Enterprise,Operating expense,General & administrative,709500.0,702559.24,702559.24,-1,True
+2026-04-01,2026,4,Actual,SMB,Revenue,Subscription revenue,3312000.0,3123573.17,3123573.17,1,True
+2026-04-01,2026,4,Actual,SMB,Revenue,Professional services revenue,745200.0,731538.86,731538.86,1,True
+2026-04-01,2026,4,Actual,SMB,COGS,Cloud hosting,510000.0,526326.98,526326.98,-1,True
+2026-04-01,2026,4,Actual,SMB,COGS,Customer support delivery,245000.0,254170.11,254170.11,-1,True
+2026-04-01,2026,4,Actual,SMB,Operating expense,Sales & marketing,780000.0,841277.3,841277.3,-1,True
+2026-04-01,2026,4,Actual,SMB,Operating expense,Product & engineering,975200.0,1026166.03,1026166.03,-1,True
+2026-04-01,2026,4,Actual,SMB,Operating expense,General & administrative,430000.0,423257.03,423257.03,-1,True
+2026-04-01,2026,4,Actual,Customer Solutions,Revenue,Subscription revenue,2318400.0,2269628.96,2269628.96,1,True
+2026-04-01,2026,4,Actual,Customer Solutions,Revenue,Professional services revenue,521640.0,535014.72,535014.72,1,True
+2026-04-01,2026,4,Actual,Customer Solutions,COGS,Cloud hosting,357000.0,373874.08,373874.08,-1,True
+2026-04-01,2026,4,Actual,Customer Solutions,COGS,Customer support delivery,171500.0,177745.92,177745.92,-1,True
+2026-04-01,2026,4,Actual,Customer Solutions,Operating expense,Sales & marketing,546000.0,577914.71,577914.71,-1,True
+2026-04-01,2026,4,Actual,Customer Solutions,Operating expense,Product & engineering,682640.0,700336.52,700336.52,-1,True
+2026-04-01,2026,4,Actual,Customer Solutions,Operating expense,General & administrative,301000.0,296622.42,296622.42,-1,True
+2026-05-01,2026,5,Actual,Enterprise,Revenue,Subscription revenue,5440041.49,5141405.02,5141405.02,1,True
+2026-05-01,2026,5,Actual,Enterprise,Revenue,Professional services revenue,1224009.34,1251150.9,1251150.9,1,True
+2026-05-01,2026,5,Actual,Enterprise,COGS,Cloud hosting,841500.0,877907.45,877907.45,-1,True
+2026-05-01,2026,5,Actual,Enterprise,COGS,Customer support delivery,404250.0,414482.52,414482.52,-1,True
+2026-05-01,2026,5,Actual,Enterprise,Operating expense,Sales & marketing,1287000.0,1398993.02,1398993.02,-1,True
+2026-05-01,2026,5,Actual,Enterprise,Operating expense,Product & engineering,1631850.0,1707181.55,1707181.55,-1,True
+2026-05-01,2026,5,Actual,Enterprise,Operating expense,General & administrative,709500.0,717754.77,717754.77,-1,True
+2026-05-01,2026,5,Actual,SMB,Revenue,Subscription revenue,3296994.85,3025117.6,3025117.6,1,True
+2026-05-01,2026,5,Actual,SMB,Revenue,Professional services revenue,741823.84,700591.45,700591.45,1,True
+2026-05-01,2026,5,Actual,SMB,COGS,Cloud hosting,510000.0,537033.59,537033.59,-1,True
+2026-05-01,2026,5,Actual,SMB,COGS,Customer support delivery,245000.0,240790.08,240790.08,-1,True
+2026-05-01,2026,5,Actual,SMB,Operating expense,Sales & marketing,780000.0,810281.31,810281.31,-1,True
+2026-05-01,2026,5,Actual,SMB,Operating expense,Product & engineering,989000.0,990911.25,990911.25,-1,True
+2026-05-01,2026,5,Actual,SMB,Operating expense,General & administrative,430000.0,417129.6,417129.6,-1,True
+2026-05-01,2026,5,Actual,Customer Solutions,Revenue,Subscription revenue,2307896.39,2273264.92,2273264.92,1,True
+2026-05-01,2026,5,Actual,Customer Solutions,Revenue,Professional services revenue,519276.69,512714.6,512714.6,1,True
+2026-05-01,2026,5,Actual,Customer Solutions,COGS,Cloud hosting,357000.0,373259.9,373259.9,-1,True
+2026-05-01,2026,5,Actual,Customer Solutions,COGS,Customer support delivery,171500.0,181357.94,181357.94,-1,True
+2026-05-01,2026,5,Actual,Customer Solutions,Operating expense,Sales & marketing,546000.0,582087.0,582087.0,-1,True
+2026-05-01,2026,5,Actual,Customer Solutions,Operating expense,Product & engineering,692300.0,729295.05,729295.05,-1,True
+2026-05-01,2026,5,Actual,Customer Solutions,Operating expense,General & administrative,301000.0,292469.53,292469.53,-1,True
+2026-06-01,2026,6,Actual,Enterprise,Revenue,Subscription revenue,5372400.0,5210497.68,5210497.68,1,True
+2026-06-01,2026,6,Actual,Enterprise,Revenue,Professional services revenue,1208790.0,1192168.47,1192168.47,1,True
+2026-06-01,2026,6,Actual,Enterprise,COGS,Cloud hosting,841500.0,901687.59,901687.59,-1,True
+2026-06-01,2026,6,Actual,Enterprise,COGS,Customer support delivery,404250.0,432954.86,432954.86,-1,True
+2026-06-01,2026,6,Actual,Enterprise,Operating expense,Sales & marketing,1287000.0,1360123.47,1360123.47,-1,True
+2026-06-01,2026,6,Actual,Enterprise,Operating expense,Product & engineering,1654620.0,1771867.35,1771867.35,-1,True
+2026-06-01,2026,6,Actual,Enterprise,Operating expense,General & administrative,709500.0,727906.84,727906.84,-1,True
+2026-06-01,2026,6,Actual,SMB,Revenue,Subscription revenue,3256000.0,2947156.19,2947156.19,1,True
+2026-06-01,2026,6,Actual,SMB,Revenue,Professional services revenue,732600.0,673148.45,673148.45,1,True
+2026-06-01,2026,6,Actual,SMB,COGS,Cloud hosting,510000.0,551719.65,551719.65,-1,True
+2026-06-01,2026,6,Actual,SMB,COGS,Customer support delivery,245000.0,254006.86,254006.86,-1,True
+2026-06-01,2026,6,Actual,SMB,Operating expense,Sales & marketing,780000.0,862537.19,862537.19,-1,True
+2026-06-01,2026,6,Actual,SMB,Operating expense,Product & engineering,1002800.0,1063515.83,1063515.83,-1,True
+2026-06-01,2026,6,Actual,SMB,Operating expense,General & administrative,430000.0,455819.12,455819.12,-1,True
+2026-06-01,2026,6,Actual,Customer Solutions,Revenue,Subscription revenue,2279200.0,2208581.52,2208581.52,1,True
+2026-06-01,2026,6,Actual,Customer Solutions,Revenue,Professional services revenue,512820.0,504826.45,504826.45,1,True
+2026-06-01,2026,6,Actual,Customer Solutions,COGS,Cloud hosting,357000.0,387160.04,387160.04,-1,True
+2026-06-01,2026,6,Actual,Customer Solutions,COGS,Customer support delivery,171500.0,181018.24,181018.24,-1,True
+2026-06-01,2026,6,Actual,Customer Solutions,Operating expense,Sales & marketing,546000.0,619152.91,619152.91,-1,True
+2026-06-01,2026,6,Actual,Customer Solutions,Operating expense,Product & engineering,701960.0,758732.97,758732.97,-1,True
+2026-06-01,2026,6,Actual,Customer Solutions,Operating expense,General & administrative,301000.0,309705.45,309705.45,-1,True
+2026-07-01,2026,7,Actual,Enterprise,Revenue,Subscription revenue,5280000.0,5341155.98,5341155.98,1,True
+2026-07-01,2026,7,Actual,Enterprise,Revenue,Professional services revenue,1188000.0,1164573.74,1164573.74,1,True
+2026-07-01,2026,7,Actual,Enterprise,COGS,Cloud hosting,858330.0,891810.2,891810.2,-1,True
+2026-07-01,2026,7,Actual,Enterprise,COGS,Customer support delivery,412335.0,413091.88,413091.88,-1,True
+2026-07-01,2026,7,Actual,Enterprise,Operating expense,Sales & marketing,1312740.0,1398402.53,1398402.53,-1,True
+2026-07-01,2026,7,Actual,Enterprise,Operating expense,Product & engineering,1710937.8,1711935.01,1711935.01,-1,True
+2026-07-01,2026,7,Actual,Enterprise,Operating expense,General & administrative,723690.0,731562.86,731562.86,-1,True
+2026-07-01,2026,7,Actual,SMB,Revenue,Subscription revenue,3200000.0,3102222.18,3102222.18,1,True
+2026-07-01,2026,7,Actual,SMB,Revenue,Professional services revenue,720000.0,700725.49,700725.49,1,True
+2026-07-01,2026,7,Actual,SMB,COGS,Cloud hosting,520200.0,535603.39,535603.39,-1,True
+2026-07-01,2026,7,Actual,SMB,COGS,Customer support delivery,249900.0,258106.18,258106.18,-1,True
+2026-07-01,2026,7,Actual,SMB,Operating expense,Sales & marketing,795600.0,871940.34,871940.34,-1,True
+2026-07-01,2026,7,Actual,SMB,Operating expense,Product & engineering,1036932.0,1124986.47,1124986.47,-1,True
+2026-07-01,2026,7,Actual,SMB,Operating expense,General & administrative,438600.0,468357.5,468357.5,-1,True
+2026-07-01,2026,7,Actual,Customer Solutions,Revenue,Subscription revenue,2240000.0,2207206.93,2207206.93,1,True
+2026-07-01,2026,7,Actual,Customer Solutions,Revenue,Professional services revenue,504000.0,496571.82,496571.82,1,True
+2026-07-01,2026,7,Actual,Customer Solutions,COGS,Cloud hosting,364140.0,364758.62,364758.62,-1,True
+2026-07-01,2026,7,Actual,Customer Solutions,COGS,Customer support delivery,174930.0,180474.02,180474.02,-1,True
+2026-07-01,2026,7,Actual,Customer Solutions,Operating expense,Sales & marketing,556920.0,587370.42,587370.42,-1,True
+2026-07-01,2026,7,Actual,Customer Solutions,Operating expense,Product & engineering,725852.4,743720.03,743720.03,-1,True
+2026-07-01,2026,7,Actual,Customer Solutions,Operating expense,General & administrative,307020.0,300786.75,300786.75,-1,True
+2026-08-01,2026,8,Forecast,Enterprise,Revenue,Subscription revenue,5187600.0,,5096817.0,1,True
+2026-08-01,2026,8,Forecast,Enterprise,Revenue,Professional services revenue,1167210.0,,1175380.47,1,True
+2026-08-01,2026,8,Forecast,Enterprise,COGS,Cloud hosting,841500.0,,873897.75,-1,True
+2026-08-01,2026,8,Forecast,Enterprise,COGS,Customer support delivery,404250.0,,411324.38,-1,True
+2026-08-01,2026,8,Forecast,Enterprise,Operating expense,Sales & marketing,1287000.0,,1354567.5,-1,True
+2026-08-01,2026,8,Forecast,Enterprise,Operating expense,Product & engineering,1700160.0,,1741813.92,-1,True
+2026-08-01,2026,8,Forecast,Enterprise,Operating expense,General & administrative,709500.0,,707016.75,-1,True
+2026-08-01,2026,8,Forecast,SMB,Revenue,Subscription revenue,3144000.0,,3088980.0,1,True
+2026-08-01,2026,8,Forecast,SMB,Revenue,Professional services revenue,707400.0,,712351.8,1,True
+2026-08-01,2026,8,Forecast,SMB,COGS,Cloud hosting,510000.0,,529635.0,-1,True
+2026-08-01,2026,8,Forecast,SMB,COGS,Customer support delivery,245000.0,,249287.5,-1,True
+2026-08-01,2026,8,Forecast,SMB,Operating expense,Sales & marketing,780000.0,,820950.0,-1,True
+2026-08-01,2026,8,Forecast,SMB,Operating expense,Product & engineering,1030400.0,,1055644.8,-1,True
+2026-08-01,2026,8,Forecast,SMB,Operating expense,General & administrative,430000.0,,428495.0,-1,True
+2026-08-01,2026,8,Forecast,Customer Solutions,Revenue,Subscription revenue,2200800.0,,2162286.0,1,True
+2026-08-01,2026,8,Forecast,Customer Solutions,Revenue,Professional services revenue,495180.0,,498646.26,1,True
+2026-08-01,2026,8,Forecast,Customer Solutions,COGS,Cloud hosting,357000.0,,370744.5,-1,True
+2026-08-01,2026,8,Forecast,Customer Solutions,COGS,Customer support delivery,171500.0,,174501.25,-1,True
+2026-08-01,2026,8,Forecast,Customer Solutions,Operating expense,Sales & marketing,546000.0,,574665.0,-1,True
+2026-08-01,2026,8,Forecast,Customer Solutions,Operating expense,Product & engineering,721280.0,,738951.36,-1,True
+2026-08-01,2026,8,Forecast,Customer Solutions,Operating expense,General & administrative,301000.0,,299946.5,-1,True
+2026-09-01,2026,9,Forecast,Enterprise,Revenue,Subscription revenue,5119958.51,,5030359.23,1,True
+2026-09-01,2026,9,Forecast,Enterprise,Revenue,Professional services revenue,1151990.66,,1160054.6,1,True
+2026-09-01,2026,9,Forecast,Enterprise,COGS,Cloud hosting,841500.0,,873897.75,-1,True
+2026-09-01,2026,9,Forecast,Enterprise,COGS,Customer support delivery,404250.0,,411324.38,-1,True
+2026-09-01,2026,9,Forecast,Enterprise,Operating expense,Sales & marketing,1287000.0,,1354567.5,-1,True
+2026-09-01,2026,9,Forecast,Enterprise,Operating expense,Product & engineering,1722930.0,,1765141.78,-1,True
+2026-09-01,2026,9,Forecast,Enterprise,Operating expense,General & administrative,709500.0,,707016.75,-1,True
+2026-09-01,2026,9,Forecast,SMB,Revenue,Subscription revenue,3103005.15,,3048702.56,1,True
+2026-09-01,2026,9,Forecast,SMB,Revenue,Professional services revenue,698176.16,,703063.39,1,True
+2026-09-01,2026,9,Forecast,SMB,COGS,Cloud hosting,510000.0,,529635.0,-1,True
+2026-09-01,2026,9,Forecast,SMB,COGS,Customer support delivery,245000.0,,249287.5,-1,True
+2026-09-01,2026,9,Forecast,SMB,Operating expense,Sales & marketing,780000.0,,820950.0,-1,True
+2026-09-01,2026,9,Forecast,SMB,Operating expense,Product & engineering,1044200.0,,1069782.9,-1,True
+2026-09-01,2026,9,Forecast,SMB,Operating expense,General & administrative,430000.0,,428495.0,-1,True
+2026-09-01,2026,9,Forecast,Customer Solutions,Revenue,Subscription revenue,2172103.61,,2134091.8,1,True
+2026-09-01,2026,9,Forecast,Customer Solutions,Revenue,Professional services revenue,488723.31,,492144.38,1,True
+2026-09-01,2026,9,Forecast,Customer Solutions,COGS,Cloud hosting,357000.0,,370744.5,-1,True
+2026-09-01,2026,9,Forecast,Customer Solutions,COGS,Customer support delivery,171500.0,,174501.25,-1,True
+2026-09-01,2026,9,Forecast,Customer Solutions,Operating expense,Sales & marketing,546000.0,,574665.0,-1,True
+2026-09-01,2026,9,Forecast,Customer Solutions,Operating expense,Product & engineering,730940.0,,748848.03,-1,True
+2026-09-01,2026,9,Forecast,Customer Solutions,Operating expense,General & administrative,301000.0,,299946.5,-1,True
+2026-10-01,2026,10,Forecast,Enterprise,Revenue,Subscription revenue,5570400.0,,5472918.0,1,True
+2026-10-01,2026,10,Forecast,Enterprise,Revenue,Professional services revenue,1253340.0,,1262113.38,1,True
+2026-10-01,2026,10,Forecast,Enterprise,COGS,Cloud hosting,841500.0,,873897.75,-1,True
+2026-10-01,2026,10,Forecast,Enterprise,COGS,Customer support delivery,404250.0,,411324.38,-1,True
+2026-10-01,2026,10,Forecast,Enterprise,Operating expense,Sales & marketing,1287000.0,,1354567.5,-1,True
+2026-10-01,2026,10,Forecast,Enterprise,Operating expense,Product & engineering,1745700.0,,1788469.65,-1,True
+2026-10-01,2026,10,Forecast,Enterprise,Operating expense,General & administrative,709500.0,,707016.75,-1,True
+2026-10-01,2026,10,Forecast,SMB,Revenue,Subscription revenue,3376000.0,,3316920.0,1,True
+2026-10-01,2026,10,Forecast,SMB,Revenue,Professional services revenue,759600.0,,764917.2,1,True
+2026-10-01,2026,10,Forecast,SMB,COGS,Cloud hosting,510000.0,,529635.0,-1,True
+2026-10-01,2026,10,Forecast,SMB,COGS,Customer support delivery,245000.0,,249287.5,-1,True
+2026-10-01,2026,10,Forecast,SMB,Operating expense,Sales & marketing,780000.0,,820950.0,-1,True
+2026-10-01,2026,10,Forecast,SMB,Operating expense,Product & engineering,1058000.0,,1083921.0,-1,True
+2026-10-01,2026,10,Forecast,SMB,Operating expense,General & administrative,430000.0,,428495.0,-1,True
+2026-10-01,2026,10,Forecast,Customer Solutions,Revenue,Subscription revenue,2363200.0,,2321844.0,1,True
+2026-10-01,2026,10,Forecast,Customer Solutions,Revenue,Professional services revenue,531720.0,,535442.04,1,True
+2026-10-01,2026,10,Forecast,Customer Solutions,COGS,Cloud hosting,357000.0,,370744.5,-1,True
+2026-10-01,2026,10,Forecast,Customer Solutions,COGS,Customer support delivery,171500.0,,174501.25,-1,True
+2026-10-01,2026,10,Forecast,Customer Solutions,Operating expense,Sales & marketing,546000.0,,574665.0,-1,True
+2026-10-01,2026,10,Forecast,Customer Solutions,Operating expense,Product & engineering,740600.0,,758744.7,-1,True
+2026-10-01,2026,10,Forecast,Customer Solutions,Operating expense,General & administrative,301000.0,,299946.5,-1,True
+2026-11-01,2026,11,Forecast,Enterprise,Revenue,Subscription revenue,5595158.51,,5497243.23,1,True
+2026-11-01,2026,11,Forecast,Enterprise,Revenue,Professional services revenue,1258910.66,,1267723.04,1,True
+2026-11-01,2026,11,Forecast,Enterprise,COGS,Cloud hosting,841500.0,,873897.75,-1,True
+2026-11-01,2026,11,Forecast,Enterprise,COGS,Customer support delivery,404250.0,,411324.38,-1,True
+2026-11-01,2026,11,Forecast,Enterprise,Operating expense,Sales & marketing,1287000.0,,1354567.5,-1,True
+2026-11-01,2026,11,Forecast,Enterprise,Operating expense,Product & engineering,1768470.0,,1811797.51,-1,True
+2026-11-01,2026,11,Forecast,Enterprise,Operating expense,General & administrative,709500.0,,707016.75,-1,True
+2026-11-01,2026,11,Forecast,SMB,Revenue,Subscription revenue,3391005.15,,3331662.56,1,True
+2026-11-01,2026,11,Forecast,SMB,Revenue,Professional services revenue,762976.16,,768316.99,1,True
+2026-11-01,2026,11,Forecast,SMB,COGS,Cloud hosting,510000.0,,529635.0,-1,True
+2026-11-01,2026,11,Forecast,SMB,COGS,Customer support delivery,245000.0,,249287.5,-1,True
+2026-11-01,2026,11,Forecast,SMB,Operating expense,Sales & marketing,780000.0,,820950.0,-1,True
+2026-11-01,2026,11,Forecast,SMB,Operating expense,Product & engineering,1071800.0,,1098059.1,-1,True
+2026-11-01,2026,11,Forecast,SMB,Operating expense,General & administrative,430000.0,,428495.0,-1,True
+2026-11-01,2026,11,Forecast,Customer Solutions,Revenue,Subscription revenue,2373703.61,,2332163.8,1,True
+2026-11-01,2026,11,Forecast,Customer Solutions,Revenue,Professional services revenue,534083.31,,537821.9,1,True
+2026-11-01,2026,11,Forecast,Customer Solutions,COGS,Cloud hosting,357000.0,,370744.5,-1,True
+2026-11-01,2026,11,Forecast,Customer Solutions,COGS,Customer support delivery,171500.0,,174501.25,-1,True
+2026-11-01,2026,11,Forecast,Customer Solutions,Operating expense,Sales & marketing,546000.0,,574665.0,-1,True
+2026-11-01,2026,11,Forecast,Customer Solutions,Operating expense,Product & engineering,750260.0,,768641.37,-1,True
+2026-11-01,2026,11,Forecast,Customer Solutions,Operating expense,General & administrative,301000.0,,299946.5,-1,True
+2026-12-01,2026,12,Forecast,Enterprise,Revenue,Subscription revenue,5662800.0,,5563701.0,1,True
+2026-12-01,2026,12,Forecast,Enterprise,Revenue,Professional services revenue,1274130.0,,1283048.91,1,True
+2026-12-01,2026,12,Forecast,Enterprise,COGS,Cloud hosting,841500.0,,873897.75,-1,True
+2026-12-01,2026,12,Forecast,Enterprise,COGS,Customer support delivery,404250.0,,411324.38,-1,True
+2026-12-01,2026,12,Forecast,Enterprise,Operating expense,Sales & marketing,1287000.0,,1354567.5,-1,True
+2026-12-01,2026,12,Forecast,Enterprise,Operating expense,Product & engineering,1791240.0,,1835125.38,-1,True
+2026-12-01,2026,12,Forecast,Enterprise,Operating expense,General & administrative,709500.0,,707016.75,-1,True
+2026-12-01,2026,12,Forecast,SMB,Revenue,Subscription revenue,3432000.0,,3371940.0,1,True
+2026-12-01,2026,12,Forecast,SMB,Revenue,Professional services revenue,772200.0,,777605.4,1,True
+2026-12-01,2026,12,Forecast,SMB,COGS,Cloud hosting,510000.0,,529635.0,-1,True
+2026-12-01,2026,12,Forecast,SMB,COGS,Customer support delivery,245000.0,,249287.5,-1,True
+2026-12-01,2026,12,Forecast,SMB,Operating expense,Sales & marketing,780000.0,,820950.0,-1,True
+2026-12-01,2026,12,Forecast,SMB,Operating expense,Product & engineering,1085600.0,,1112197.2,-1,True
+2026-12-01,2026,12,Forecast,SMB,Operating expense,General & administrative,430000.0,,428495.0,-1,True
+2026-12-01,2026,12,Forecast,Customer Solutions,Revenue,Subscription revenue,2402400.0,,2360358.0,1,True
+2026-12-01,2026,12,Forecast,Customer Solutions,Revenue,Professional services revenue,540540.0,,544323.78,1,True
+2026-12-01,2026,12,Forecast,Customer Solutions,COGS,Cloud hosting,357000.0,,370744.5,-1,True
+2026-12-01,2026,12,Forecast,Customer Solutions,COGS,Customer support delivery,171500.0,,174501.25,-1,True
+2026-12-01,2026,12,Forecast,Customer Solutions,Operating expense,Sales & marketing,546000.0,,574665.0,-1,True
+2026-12-01,2026,12,Forecast,Customer Solutions,Operating expense,Product & engineering,759920.0,,778538.04,-1,True
+2026-12-01,2026,12,Forecast,Customer Solutions,Operating expense,General & administrative,301000.0,,299946.5,-1,True

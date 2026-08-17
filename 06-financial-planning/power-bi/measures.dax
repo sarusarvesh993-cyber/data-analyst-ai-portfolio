@@ -1,0 +1,78 @@
+-- Public-finance measures. Table names assume CSV filenames imported by Power BI Desktop.
+
+Annual Budget =
+SUM(planning_mart[budget])
+
+Expenditures To Date =
+SUM(planning_mart[expenditures])
+
+Expected Spend To Date =
+SUM(planning_mart[expected_spend_to_date])
+
+Remaining Budget =
+[Annual Budget] - [Expenditures To Date]
+
+Budget Utilization =
+DIVIDE([Expenditures To Date], [Annual Budget])
+
+Pace Variance =
+[Expenditures To Date] - [Expected Spend To Date]
+
+Pace Gap Percentage Points =
+[Budget Utilization] - DIVIDE(MAX(planning_mart[elapsed_pct]), 100)
+
+Linear Run-Rate Proxy =
+DIVIDE(
+    [Expenditures To Date],
+    DIVIDE(MAX(planning_mart[elapsed_pct]), 100)
+)
+
+Projected Variance Proxy =
+[Linear Run-Rate Proxy] - [Annual Budget]
+
+Programs =
+DISTINCTCOUNT(planning_mart[program_name])
+
+Funds =
+DISTINCTCOUNT(planning_mart[fund_name])
+
+-- Seeded synthetic corporate-planning measures.
+
+Corporate Budget =
+SUM(corporate_plan[budget_amount])
+
+Corporate Base Forecast =
+SUM(corporate_plan[base_forecast_amount])
+
+Corporate Budget P&L =
+SUMX(
+    corporate_plan,
+    corporate_plan[budget_amount] * corporate_plan[pnl_sign]
+)
+
+Corporate Base Forecast P&L =
+SUMX(
+    corporate_plan,
+    corporate_plan[base_forecast_amount] * corporate_plan[pnl_sign]
+)
+
+Corporate Forecast Variance =
+[Corporate Base Forecast P&L] - [Corporate Budget P&L]
+
+Corporate Forecast Revenue =
+CALCULATE(
+    [Corporate Base Forecast],
+    corporate_plan[statement_group] = "Revenue"
+)
+
+Corporate Forecast Costs =
+CALCULATE(
+    [Corporate Base Forecast],
+    corporate_plan[statement_group] <> "Revenue"
+)
+
+Corporate Forecast EBITDA =
+[Corporate Forecast Revenue] - [Corporate Forecast Costs]
+
+Corporate Forecast EBITDA Margin =
+DIVIDE([Corporate Forecast EBITDA], [Corporate Forecast Revenue])

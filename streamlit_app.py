@@ -17,12 +17,12 @@ render_sidebar()
 render_home_hero()
 
 kpi1, kpi2, kpi3, kpi4 = st.columns(4)
-kpi1.metric("Interactive projects", "05", help="Five complete analytical workflows")
-kpi2.metric("Automated tests", "19", delta="All passing", delta_color="normal")
+kpi1.metric("Interactive projects", "06", help="Six complete analytical workflows")
+kpi2.metric("Automated tests", "24", delta="All passing", delta_color="normal")
 kpi3.metric(
     "Methods covered",
-    "05",
-    help="Classification, forecasting, experimentation, SQL, and segmentation",
+    "06",
+    help="Classification, forecasting, experimentation, SQL, segmentation, and FP&A",
 )
 kpi4.metric("Core app cost", "₹0", help="No paid API is required")
 
@@ -33,7 +33,7 @@ render_section(
 )
 
 row1 = st.columns(3)
-row2 = st.columns(2)
+row2 = st.columns(3)
 projects = [
     (
         row1[0],
@@ -90,6 +90,17 @@ projects = [
         "pages/5_Customer_Segmentation.py",
         "Explore customer segmentation →",
     ),
+    (
+        row2[2],
+        "06",
+        "Financial Planning & Variance",
+        "Reconcile a real operating budget, investigate Q3 pacing, and test revenue, cost, and hiring scenarios.",
+        ["FP&A", "Excel", "Budget vs actual"],
+        "#3C7A57",
+        "#E6F3EA",
+        "pages/6_Financial_Planning.py",
+        "Explore financial planning →",
+    ),
 ]
 for column, number, title, copy, tags, accent, soft, page, label in projects:
     tag_html = "".join(f'<span class="tag">{tag}</span>' for tag in tags)
@@ -136,7 +147,7 @@ for column, icon, title, copy in [
         cap4,
         "04",
         "Interactive delivery",
-        "One consistent Streamlit app, automated tests, and reproducible Power BI companion assets.",
+        "Streamlit, formula-driven Excel, Power BI companion assets, and automated tests.",
     ),
 ]:
     with column:
