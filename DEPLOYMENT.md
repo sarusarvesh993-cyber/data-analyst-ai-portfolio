@@ -4,16 +4,25 @@ The repository is prepared as one multi-page app. The entry file is `streamlit_a
 
 ## 1. Verify locally in Windows PowerShell
 
+First, open PowerShell in the folder that actually contains the repository. Do not type `path\to\...` literally. For the usual GitHub Desktop location, use:
+
 ```powershell
-cd path\to\data-analyst-ai-portfolio
+Set-Location "$HOME\Documents\GitHub\data-analyst-ai-portfolio"
+```
+
+Then create the environment and run the checks:
+
+```powershell
 py -3.12 -m venv .venv
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
-pip install -r requirements.txt
-pytest -q
-streamlit run streamlit_app.py
+python -m pip install -r requirements-dev.txt
+python -m pytest -q
+python -m streamlit run streamlit_app.py
 ```
+
+`requirements-dev.txt` includes the runtime packages plus pytest and the notebook tools.
 
 Check the home page and all three project pages before pushing.
 
