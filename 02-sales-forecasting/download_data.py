@@ -1,29 +1,47 @@
+"""Refresh the public FRED retail-sales snapshot.
+
+Series RSAFSNA is U.S. retail trade and food-services sales, monthly, millions
+of dollars, not seasonally adjusted. No API key is required.
+
+Outputs:
+- 02-sales-forecasting/data/retail_sales_monthly.csv
+- portfolio_app/data/retail_sales_monthly.csv
 """
-Download a REAL, stable, reproducible sales series for forecasting:
-US Monthly Retail Trade Sales (FRED series RSXFS), $ millions, 1992->present.
-Public, no auth, no API key. Saved locally so the project never breaks.
-Output: data/retail_sales_monthly.csv  (observation_date, RetailSales)
-"""
-import os
-import io
-import urllib.request
+from io import StringIO
+from pathlib import Path
+from urllib.request import urlopen
+
 import pandas as pd
 
-URL = "https://fred.stlouisfed.org/graph/fredgraph.csv?id=RSXFS"
+SERIES_ID = "RSAFSNA"
+URL = f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={SERIES_ID}"
+PROJECT_DIR = Path(__file__).resolve().parent
+REPO_ROOT = PROJECT_DIR.parent
 
 
-def main():
-    os.makedirs("data", exist_ok=True)
-    print("downloading FRED RSXFS (US monthly retail trade sales)...")
-    raw = urllib.request.urlopen(URL, timeout=30).read().decode()
-    df = pd.read_csv(io.StringIO(raw)).dropna()
-    df.columns = ["observation_date", "RetailSales"]
-    df["observation_date"] = pd.to_datetime(df["observation_date"])
-    df = df.sort_values("observation_date").reset_index(drop=True)
-    df.to_csv("data/retail_sales_monthly.csv", index=False)
-    print(f"saved data/retail_sales_monthly.csv  rows={len(df)}")
-    print("range:", df["observation_date"].min().date(), "->", df["observation_date"].max().date())
-    print("latest retail sales ($, millions):", int(df["RetailSales"].iloc[-1]))
+def download() -> pd.DataFrame:
+    raw = urlopen(URL, timeout=30).read().decode("utf-8")
+    frame = pd.read_csv(StringIO(raw)).dropna()
+    frame.columns = ["observation_date", "RetailSales"]
+    frame["observation_date"] = pd.to_datetime(frame["observation_date"])
+    return frame.sort_values("observation_date").reset_index(drop=True)
+
+
+def main() -> None:
+    print(f"Downloading FRED {SERIES_ID}…")
+    frame = download()
+    destinations = [
+        PROJECT_DIR / "data" / "retail_sales_monthly.csv",
+        REPO_ROOT / "portfolio_app" / "data" / "retail_sales_monthly.csv",
+    ]
+    for destination in destinations:
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        frame.to_csv(destination, index=False)
+        print(f"Saved {destination.relative_to(REPO_ROOT)}")
+    print(
+        f"Rows={len(frame)}  range={frame['observation_date'].min():%Y-%m} "
+        f"to {frame['observation_date'].max():%Y-%m}"
+    )
 
 
 if __name__ == "__main__":

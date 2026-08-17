@@ -1,57 +1,30 @@
+"""Generate the seeded customer-churn demonstration dataset.
+
+Run from any working directory:
+    python 01-customer-churn/generate_data.py
+
+Output: 01-customer-churn/data/churn.csv
 """
-Generate a synthetic-but-realistic customer churn dataset.
-Seeded -> fully reproducible (same numbers every run). No external download, no cost.
-Output: data/churn.csv
-"""
-import numpy as np
-import pandas as pd
-import os
+from pathlib import Path
+import sys
 
-SEED = 42
-N = 5000
+PROJECT_DIR = Path(__file__).resolve().parent
+REPO_ROOT = PROJECT_DIR.parent
+sys.path.insert(0, str(REPO_ROOT))
 
-def main():
-    rng = np.random.default_rng(SEED)
-    tenure = rng.integers(1, 73, N)                       # months
-    monthly = np.round(rng.uniform(20, 120, N), 2)        # $/month
-    contract = rng.choice(["Month-to-month", "One year", "Two year"], N, p=[0.5, 0.3, 0.2])
-    internet = rng.choice(["DSL", "Fiber optic", "No"], N, p=[0.4, 0.4, 0.2])
-    tech = rng.choice(["Yes", "No"], N, p=[0.5, 0.5])
-    security = rng.choice(["Yes", "No"], N, p=[0.5, 0.5])
-    payment = rng.choice(["Electronic check", "Mailed check", "Bank transfer", "Credit card"],
-                         N, p=[0.4, 0.3, 0.15, 0.15])
-    senior = rng.choice([0, 1], N, p=[0.7, 0.3])
-    dependents = rng.choice([0, 1], N, p=[0.7, 0.3])
+from portfolio_app.churn import make_churn_data  # noqa: E402
 
-    # Logistic "truth": combine real-world churn drivers.
-    logit = -3.0
-    logit += (contract == "Month-to-month") * 1.8
-    logit += (contract == "Two year") * -1.8
-    logit += (internet == "Fiber optic") * 1.2
-    logit += (tech == "No") * 0.8
-    logit += (security == "No") * 0.7
-    logit += (payment == "Electronic check") * 0.9
-    logit += senior * 0.6
-    logit += (tenure < 12) * 1.0
-    logit += (monthly - 70) / 30.0
-    p = 1.0 / (1.0 + np.exp(-logit))
-    churn = rng.binomial(1, p)
 
-    df = pd.DataFrame({
-        "tenure": tenure,
-        "MonthlyCharges": monthly,
-        "Contract": contract,
-        "InternetService": internet,
-        "TechSupport": tech,
-        "OnlineSecurity": security,
-        "PaymentMethod": payment,
-        "SeniorCitizen": senior,
-        "Dependents": dependents,
-        "Churn": churn,
-    })
-    os.makedirs("data", exist_ok=True)
-    df.to_csv("data/churn.csv", index=False)
-    print(f"Wrote data/churn.csv  shape={df.shape}  churn_rate={df['Churn'].mean():.1%}")
+def main() -> None:
+    output = PROJECT_DIR / "data" / "churn.csv"
+    output.parent.mkdir(parents=True, exist_ok=True)
+    data = make_churn_data().drop(columns="customer_id")
+    data.to_csv(output, index=False)
+    print(
+        f"Wrote {output.relative_to(REPO_ROOT)}  "
+        f"shape={data.shape}  churn_rate={data['Churn'].mean():.1%}"
+    )
+
 
 if __name__ == "__main__":
     main()

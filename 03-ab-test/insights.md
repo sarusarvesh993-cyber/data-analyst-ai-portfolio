@@ -1,15 +1,12 @@
-# AI-Generated Insights - A/B Test
+# AI-assisted stakeholder brief — A/B Test
 
 ## What the data says
-Treatment converts at 12.80% vs control 11.52% (lift +11.1%); p=2.0e-18, 95% CI [0.99%, 1.57%] -> statistically significant.
+Treatment converted at 12.70% versus 11.52% for control. Absolute lift is +1.18%, p=5.47e-16, and the 95% CI is [+0.90%, +1.47%].
 
-## Top drivers
-- Large, balanced sample (100k per arm)
-- Clear, positive lift
-- Bootstrap CI excludes zero
+## Factors to review
+- Observed conversions and sample sizes
+- Sampling uncertainty represented by the confidence interval
+- Minimum useful lift of 0.5 percentage points
 
 ## Recommended action
-Ship the treatment: the lift is statistically significant with high power. Monitor post-launch to confirm it holds.
-
-## Why this matters
-This turns raw records into a ranked, decision-ready brief — exactly the loop a data analyst owns: question -> data -> model -> plain-English recommendation.
+Ship treatment. Confirm randomization quality, experiment duration, revenue, refunds, and other guardrail metrics before rollout.

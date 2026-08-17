@@ -1,71 +1,98 @@
-"""
-Free, key-optional AI insight layer for the portfolio.
+"""Optional, metric-controlled stakeholder-brief generator.
 
-generate_insights(metrics) -> natural-language stakeholder brief.
-
-- If HF_TOKEN is set in the environment, it calls a FREE HuggingFace
-  inference model to write the brief live.
-- Otherwise (default) it returns a metric-driven narrative authored in
-  _template(). This keeps every project runnable with ZERO cost and no
-  external dependency, so nothing breaks in interviews or deployment.
+The quantitative workflow never depends on this module. With an HF_TOKEN, the
+function attempts a Hugging Face chat-completion request. Without a token, or
+if the request fails, it returns a deterministic analyst-authored template.
 """
+from __future__ import annotations
+
 import os
-import textwrap
+
+import requests
+
+DEFAULT_MODEL = "google/gemma-2-2b-it"
+HF_CHAT_URL = "https://router.huggingface.co/v1/chat/completions"
 
 
-def _hf_generate(prompt: str, token: str, model: str = "HuggingFaceH4/zephyr-7b-beta") -> str | None:
+def _get_token() -> str | None:
+    """Read a local environment token or a Streamlit Community Cloud secret."""
+    token = os.getenv("HF_TOKEN")
+    if token:
+        return token
     try:
-        import requests
-        url = f"https://api-inference.huggingface.co/models/{model}"
-        resp = requests.post(
-            url,
-            headers={"Authorization": f"Bearer {token}"},
-            json={"inputs": prompt, "parameters": {"max_new_tokens": 350}},
-            timeout=30,
-        )
-        if resp.status_code == 200:
-            out = resp.json()
-            if isinstance(out, list) and out:
-                return out[0].get("generated_text", "")
-            return str(out)
+        import streamlit as st
+
+        return st.secrets.get("HF_TOKEN")
     except Exception:
         return None
-    return None
+
+
+def _hf_generate(prompt: str, token: str, model: str = DEFAULT_MODEL) -> str | None:
+    """Call Hugging Face's OpenAI-compatible chat endpoint, failing closed."""
+    try:
+        response = requests.post(
+            HF_CHAT_URL,
+            headers={"Authorization": f"Bearer {token}"},
+            json={
+                "model": os.getenv("HF_MODEL", model),
+                "messages": [
+                    {
+                        "role": "system",
+                        "content": (
+                            "You are a data analyst writing a concise stakeholder brief. "
+                            "Use only facts supplied by the user. Do not invent results."
+                        ),
+                    },
+                    {"role": "user", "content": prompt},
+                ],
+                "max_tokens": 260,
+                "temperature": 0.2,
+            },
+            timeout=30,
+        )
+        response.raise_for_status()
+        payload = response.json()
+        return payload["choices"][0]["message"]["content"].strip()
+    except (requests.RequestException, KeyError, IndexError, TypeError, ValueError):
+        return None
 
 
 def _template(metrics: dict) -> str:
+    """Create the predictable no-token version of the brief."""
     drivers = metrics.get("drivers", [])
     lines = [
         "## What the data says",
-        metrics.get("headline", "The model finds a clear, actionable signal in the data."),
+        metrics.get("headline", "The analysis produced a decision-relevant signal."),
         "",
-        "## Top drivers",
+        "## Factors to review",
     ]
-    if drivers:
-        lines += [f"- {d}" for d in drivers]
-    else:
-        lines.append("- (see model importance)")
-    lines += [
-        "",
-        "## Recommended action",
-        metrics.get("recommendation", "Use the model score to prioritize the highest-risk / highest-value actions first."),
-        "",
-        "## Why this matters",
-        "This turns raw records into a ranked, decision-ready brief — exactly the loop a data analyst owns: "
-        "question -> data -> model -> plain-English recommendation.",
-    ]
+    lines.extend(f"- {driver}" for driver in drivers)
+    if not drivers:
+        lines.append("- Review the project diagnostics and assumptions.")
+    lines.extend(
+        [
+            "",
+            "## Recommended action",
+            metrics.get(
+                "recommendation",
+                "Use the result as one input to a measured pilot and monitor the outcome.",
+            ),
+        ]
+    )
     return "\n".join(lines)
 
 
 def generate_insights(metrics: dict, use_llm: bool = True) -> str:
-    """Return a natural-language insight brief from a metrics dict."""
-    narrative = _template(metrics)
-    if use_llm and os.getenv("HF_TOKEN"):
-        prompt = (
-            "You are a senior data analyst. Write a concise, business-friendly insight summary "
-            f"(under 150 words) for a portfolio project. Facts: {metrics}. Be specific and avoid fluff."
-        )
-        llm = _hf_generate(prompt, os.getenv("HF_TOKEN"))
-        if llm:
-            return llm.strip()
-    return narrative
+    """Return a brief from approved metrics, with a deterministic fallback."""
+    fallback = _template(metrics)
+    token = _get_token() if use_llm else None
+    if not token:
+        return fallback
+
+    prompt = (
+        "Write a stakeholder brief under 160 words with headings for finding, "
+        "business implication, recommendation, and limitation. Here are the only "
+        f"approved facts and context: {metrics!r}"
+    )
+    generated = _hf_generate(prompt, token)
+    return generated or fallback
