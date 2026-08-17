@@ -1,4 +1,4 @@
-# AI-Generated Insights — A/B Test
+# AI-Generated Insights - A/B Test
 
 ## What the data says
 Treatment converts at 12.80% vs control 11.52% (lift +11.1%); p=2.0e-18, 95% CI [0.99%, 1.57%] -> statistically significant.
