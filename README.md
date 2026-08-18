@@ -1,4 +1,4 @@
-# Data Analyst Portfolio — Sarvesh Kommawar
+# Data Analyst Portfolio - Sarvesh Kommawar
 
 End-to-end analytics work covering classification, time-series forecasting, experimentation, SQL, customer segmentation, financial planning, healthcare operations, and decision-focused dashboards. Each project starts with a business question, validates its method, states its limitations, and ends with an action a stakeholder can evaluate.
 
