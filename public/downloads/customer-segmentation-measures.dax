@@ -1,0 +1,58 @@
+-- Table names assume the CSV filenames imported by Power BI Desktop.
+
+Customers =
+DISTINCTCOUNT(customer_segments[customer_id])
+
+Completed Purchase Value =
+SUM(customer_segments[monetary_value])
+
+Orders =
+SUM(customer_segments[frequency])
+
+Average Order Value =
+DIVIDE([Completed Purchase Value], [Orders])
+
+Repeat Customers =
+CALCULATE(
+    [Customers],
+    customer_segments[is_repeat_customer] = TRUE()
+)
+
+Repeat Customer Rate =
+DIVIDE([Repeat Customers], [Customers])
+
+Returned Value =
+SUM(customer_segments[return_value])
+
+Return Rate =
+DIVIDE(
+    [Returned Value],
+    [Completed Purchase Value] + [Returned Value]
+)
+
+At-Risk Historical Value =
+CALCULATE(
+    [Completed Purchase Value],
+    customer_segments[rfm_segment] = "At Risk"
+)
+
+Champions Revenue Share =
+DIVIDE(
+    CALCULATE(
+        [Completed Purchase Value],
+        customer_segments[rfm_segment] = "Champions"
+    ),
+    CALCULATE(
+        [Completed Purchase Value],
+        REMOVEFILTERS(customer_segments[rfm_segment])
+    )
+)
+
+Median Recency =
+MEDIAN(customer_segments[recency_days])
+
+Median Frequency =
+MEDIAN(customer_segments[frequency])
+
+Median Customer Value =
+MEDIAN(customer_segments[monetary_value])

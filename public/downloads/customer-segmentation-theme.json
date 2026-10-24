@@ -1,0 +1,23 @@
+{
+  "name": "Sarvesh Portfolio - Customer Segmentation",
+  "dataColors": ["#0F8A7B", "#173B63", "#F4A340", "#7C6CE7", "#E26D5A", "#55A6D9", "#8FB9A8"],
+  "background": "#F4F8F7",
+  "foreground": "#102A43",
+  "tableAccent": "#0F8A7B",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "title": [{"fontColor": {"solid": {"color": "#102A43"}}, "fontSize": 12, "fontFamily": "Segoe UI Semibold"}],
+        "background": [{"color": {"solid": {"color": "#FFFFFF"}}, "transparency": 0}],
+        "border": [{"color": {"solid": {"color": "#DCE8E5"}}, "show": true, "radius": 8}],
+        "visualHeader": [{"show": false}]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [{"color": {"solid": {"color": "#102A43"}}, "fontSize": 23, "fontFamily": "Segoe UI Semibold"}],
+        "categoryLabels": [{"color": {"solid": {"color": "#63788B"}}, "fontSize": 10}]
+      }
+    }
+  }
+}

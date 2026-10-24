@@ -1,0 +1,43 @@
+-- Measures assume state_health_access.csv is imported as state_health_access.
+
+States and UTs =
+DISTINCTCOUNT(state_health_access[state])
+
+Sub Centres =
+SUM(state_health_access[sub_centres])
+
+PHCs =
+SUM(state_health_access[phcs])
+
+CHCs =
+SUM(state_health_access[chcs])
+
+District Hospitals =
+SUM(state_health_access[district_hospitals])
+
+Reported 24x7 Facilities =
+SUM(state_health_access[facilities_24x7])
+
+Median Urban Mapping Rate =
+MEDIAN(state_health_access[urban_facility_mapping_pct])
+
+Median PHC Three-Nurse Readiness =
+MEDIAN(state_health_access[phc_three_nurse_readiness_pct])
+
+Median Infant Mortality Rate =
+MEDIAN(state_health_access[imr])
+
+Median Review Priority Score =
+MEDIAN(state_health_access[review_priority_score])
+
+Higher Priority States =
+CALCULATE(
+    [States and UTs],
+    state_health_access[review_priority_band] = "Higher review priority"
+)
+
+Population Reporting Coverage =
+DIVIDE(
+    CALCULATE([States and UTs], NOT ISBLANK(state_health_access[population_lakh])),
+    [States and UTs]
+)
