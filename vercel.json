@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": "npm run build",
+  "buildCommand": "node -e 'const fs=require(\"fs\");fs.mkdirSync(\"public/data\",{recursive:true});for(const name of [\"ab-test-reference\", \"churn\", \"ecommerce\", \"finance\", \"forecast\", \"healthcare\", \"manifest\", \"segmentation\"]){const source=`${name}.json`;const destination=`public/data/${name}.json`;if(fs.existsSync(source))fs.copyFileSync(source,destination);if(!fs.existsSync(destination))throw new Error(`Missing required snapshot: ${destination}`);};fs.writeFileSync(\"next.config.ts\",`import type { NextConfig } from \"next\";\n\nconst nextConfig: NextConfig = {\n  output: \"export\",\n  trailingSlash: true,\n  images: { unoptimized: true },\n  poweredByHeader: false,\n};\n\nexport default nextConfig;\n`);' && npm run build",
   "outputDirectory": "out"
 }
