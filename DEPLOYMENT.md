@@ -1,83 +1,78 @@
-# Free Streamlit Deployment
+# Vercel deployment
 
-The repository is prepared as one multi-page app. The entry file is `streamlit_app.py`; the pages are discovered from `pages/`.
+The production app is now the static Next.js application in `app/`, not the legacy Streamlit server. See `MIGRATION_VERCEL.md` for route parity, architecture, and verification evidence.
 
-## 1. Verify locally in Windows PowerShell
-
-First, open PowerShell in the folder that actually contains the repository. Do not type `path\to\...` literally. For the usual GitHub Desktop location, use:
+## 1. Verify locally
 
 ```powershell
-Set-Location "$HOME\Documents\GitHub\data-analyst-ai-portfolio"
+npm ci
+npm run typecheck
+npm run build
+npx playwright install chromium
+npm test
 ```
 
-Then create the environment and run the checks:
+Optional original-analysis checks:
 
 ```powershell
 py -3.12 -m venv .venv
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\.venv\Scripts\Activate.ps1
+.\\.venv\\Scripts\\Activate.ps1
 python -m pip install --upgrade pip
-python -m pip install -r requirements-dev.txt
-python -m pytest -q
-python -m streamlit run streamlit_app.py
+pip install -r requirements-dev.txt
+pytest -q
+python scripts/export_web_data.py
 ```
 
-`requirements-dev.txt` includes the runtime packages plus pytest and the notebook tools.
+Do not commit `.env`, `.streamlit/secrets.toml`, a Hugging Face token, a Vercel token, `node_modules`, `.next`, `out`, or `.vercel`.
 
-Check the home page and all three project pages before pushing.
-
-## 2. Push the reviewed files
+## 2. Push the reviewed migration
 
 ```powershell
 git status
 git add .
-git commit -m "Add tested multi-page analytics app"
+git commit -m "Migrate analytics portfolio from Streamlit to Vercel"
 git push origin main
 ```
 
-Never commit `.env`, a GitHub token, or a Hugging Face token. `.gitignore` already excludes `.env`.
+The existing Vercel project connected to `sarusarvesh993-cyber/data-analyst-ai-portfolio` will build the pushed commit.
 
-## 3. Create the free cloud app
+## 3. Vercel settings
 
-1. Go to <https://share.streamlit.io/> and sign in with the GitHub account that owns the repository.
-2. Select **Create app**.
-3. Choose:
-   - Repository: `sarusarvesh993-cyber/data-analyst-ai-portfolio`
-   - Branch: `main`
-   - Main file path: `streamlit_app.py`
-4. Choose an available app URL.
-5. Deploy and wait for the dependency installation to finish.
+The supplied `vercel.json` is authoritative:
 
-The public repository produces a public app. Streamlit reads `requirements.txt` and `runtime.txt` from the repository.
-
-## 4. Optional AI token
-
-The app works without any token. To enable the optional live Hugging Face call:
-
-1. Open the deployed app's settings.
-2. Open **Secrets**.
-3. Add:
-
-```toml
-HF_TOKEN = "your_hugging_face_token"
+```json
+{
+  "framework": null,
+  "buildCommand": "npm run build",
+  "outputDirectory": "out"
+}
 ```
 
-Do not place this token in a tracked file. If the inference service is unavailable, the authored fallback brief is returned.
+This selects **Other** and serves the completed static export. No Python entrypoint, environment variable, Function, cron job, persistent storage, or paid API is required.
 
-## 5. Finish the release
+## 4. Production acceptance
 
-After deployment:
+Run against the actual HTTPS production alias:
 
-1. Copy the final `https://...streamlit.app` URL.
-2. Replace the pending-live text in `README.md` with the URL.
-3. Add the same URL to each project README.
-4. Add a screenshot under `assets/` and verify every GitHub link.
-5. Reboot the app once from Streamlit settings after changing dependencies.
+```powershell
+$env:PLAYWRIGHT_BASE_URL="https://YOUR-REAL-DEPLOYMENT.vercel.app"
+npm test
+```
 
-## Common failures
+Also verify in a private browser window:
 
-- **ModuleNotFoundError:** verify the missing direct dependency is pinned in `requirements.txt`.
-- **File not found:** use paths derived from `Path(__file__)`, not the terminal's current directory.
-- **App sleeps or starts slowly:** normal on free hosting; model and forecast functions are cached.
-- **Forecast data unavailable:** the app uses a committed FRED snapshot, so it does not require a network call at startup.
-- **Token failure:** remove the optional secret and confirm the deterministic fallback works.
+- All eight routes load directly and on refresh.
+- A/B default planner reads 14,745 per arm; 95% power reads 24,411.
+- Churn default scenario reads 91.4%; threshold 0.20 reads 95.3% recall and 710 flagged.
+- Forecast horizon and CSV, cohort controls, segmentation filters/exports, FP&A scenario/reset, and healthcare filters work.
+- No horizontal page overflow appears at 390px; wide data tables scroll internally.
+- No live LLM call, runtime secret, or Python server is expected.
+
+## 5. Finish the cutover
+
+1. Record the production URL and deployment commit.
+2. Update the pending Vercel link in `README.md` only after tests pass.
+3. Update external portfolio links to the Vercel routes.
+4. Keep the previous Streamlit app labeled **legacy** until the owner decides to retire it.
+
+Rollback by reverting the migration commit in GitHub/Vercel. The original Streamlit files remain available for a separate legacy deployment.

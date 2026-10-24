@@ -1,0 +1,28 @@
+{
+  "name": "data-analyst-ai-portfolio-vercel",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Seven interactive analytics projects migrated from Streamlit to a static Next.js/Vercel experience",
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0",
+    "build": "next build",
+    "preview": "python -m http.server 3000 --bind 0.0.0.0 --directory out",
+    "typecheck": "tsc --noEmit",
+    "test": "playwright test",
+    "test:python": "pytest -q",
+    "data:web": "python scripts/export_web_data.py",
+    "check": "npm run typecheck && npm run build"
+  },
+  "dependencies": {
+    "next": "16.4.3",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@types/node": "^20.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.9.0"
+  }
+}
