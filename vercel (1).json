@@ -1,0 +1,6 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "mkdir -p public/data;cp *.json public/data/;rm public/data/package*.json public/data/vercel.json;[ -f next.config.ts ]||echo 'export default{output:\"export\",trailingSlash:true,images:{unoptimized:true}}' > next.config.mjs;npm run build",
+  "outputDirectory": "out"
+}
